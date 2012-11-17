@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Status:
+  = @order.order_status.title
+%p
+  %b Transporter:
+  = @order.transporter_id
+%p
+  %b Address:
+  = @order.address
+%p
+  %b Customer first name:
+  = @order.customer_first_name
+%p
+  %b Customer last name:
+  = @order.customer_last_name
+%p
+  %b Customer email:
+  = @order.customer_email
+%p
+  %b Customer phone:
+  = @order.customer_phone
+%p
+  %b Charge:
+  = @order.charge
+%p
+  %b Product name:
+  = @order.product_name
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path
