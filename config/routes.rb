@@ -1,4 +1,6 @@
 WhyDeliver::Application.routes.draw do
+  devise_for :merchants
+
   resources :merchants
 
   # The priority is based upon order of creation:
