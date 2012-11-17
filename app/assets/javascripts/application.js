@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require stripe_initializer
+//= require app.js
+//= require controllers.js
+//= require filters.js
+//= require services.js
+//= require angular-resource.min.js
 //= require pages
