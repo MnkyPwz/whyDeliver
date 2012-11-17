@@ -42,9 +42,8 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    current_merchant = Merchant.find(1)
     @order = current_merchant.orders.build(params[:order])
-
+    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

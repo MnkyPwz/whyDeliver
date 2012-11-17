@@ -29,7 +29,6 @@ $ ->
     return false
     
   stripeResponseHandler = (status, response) ->
-    console.log response
     if response.error
       $(".payment-errors").text response.error.message
       $(".submit-button").removeAttr "disabled"

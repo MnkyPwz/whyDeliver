@@ -1,4 +1,6 @@
 class MerchantsController < ApplicationController
+  before_filter :require_merchant
+
   # GET /merchants
   # GET /merchants.json
   def index
@@ -52,13 +54,6 @@ class MerchantsController < ApplicationController
     
     @merchant.update_attributes(:stripe_customer_id => customer["id"])
      
-    ## THIS IS THE CODE FOR CHARGING A MERCHANT 
-     
-    # charge = Stripe::Charge.create(
-    #   :amount => 5000,
-    #   :currency => "usd",
-    #   :customer => @merchant.stripe_customer_id )
-
     respond_to do |format|
       if @merchant.save
         format.html { redirect_to @merchant, notice: 'Merchant was successfully created.' }
@@ -96,5 +91,10 @@ class MerchantsController < ApplicationController
       format.html { redirect_to merchants_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def require_merchant
+    @merchant = Merchant.find(session[:merchant_id])
   end
 end

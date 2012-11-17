@@ -25,8 +25,6 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
-
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
