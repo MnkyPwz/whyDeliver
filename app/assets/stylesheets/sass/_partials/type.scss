@@ -1,0 +1,139 @@
+/* ******************************************************************************
+ *
+ * @font-face rules
+ *
+ ****************************************************************************** */
+
+
+
+/* ******************************************************************************
+ *
+ * Default type styles
+ *
+ ****************************************************************************** */
+
+h1, h2, h3, h4, h5, h6 {
+}
+
+h1 {
+  color: $h1-color;
+  font-size: 44px;
+  line-height: 44px;
+}
+
+h2 {
+  color: $h2-color;
+  font-size: 39px;
+  line-height: 39px;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: $h3-color;
+  font-size: 26px;
+  line-height: 26px;
+}
+
+h4 {
+  color: $h4-color;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+p {
+  @include font;
+  color: $text-color;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  font-size: 1em;
+  &:hover, 
+  &:focus {
+    color: $link-hover;
+  }
+}
+
+ol {
+  li {
+  }
+}
+
+ul {
+  li {
+    font-size: $regFontSize;
+  }
+}
+
+ul, ol {
+  li {
+    @extend p;
+  }
+}
+
+blockquote {
+  
+}
+
+small {
+  
+}
+
+mark {
+  
+}
+
+b, strong {
+  
+}
+
+i, em {
+  
+}
+
+ins, u {
+  
+}
+
+del, s {
+  
+}
+
+abbr {
+  
+}
+
+sup, sub {
+  
+}
+
+sup {
+  
+}
+
+sub {
+  
+}
+
+time {
+  
+}
+
+address {
+  
+}
+
+code, pre {
+  
+}
+
+code {
+  
+}
+
+pre {
+  
+}

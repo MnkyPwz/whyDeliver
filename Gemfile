@@ -5,6 +5,9 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'haml-rails'
+gem 'compass-rails'
+
 group :development do
   gem 'sqlite3'
 end
@@ -22,7 +25,7 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
-gem 'haml-rails'
+
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
