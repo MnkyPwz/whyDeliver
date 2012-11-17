@@ -33,7 +33,8 @@ controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', '
   $scope.merchant = Merchant.get();
 
   $scope.createOrder = function() {
-    Order.post(
+    $scope.order = 
+    Order.save(
 
     );
   };
