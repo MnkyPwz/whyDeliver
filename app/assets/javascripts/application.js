@@ -13,4 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require stripe_initializer
-//= require_tree .
