@@ -7,21 +7,6 @@
           %li= msg
 
   .field
-    = f.label :merchant_id
-    = f.number_field :merchant_id
-  .field
-    = f.label :transporter_id
-    = f.number_field :transporter_id
-  .field
-    = f.label :status_id
-    = f.number_field :status_id
-  .field
-    = f.label :destination_lat
-    = f.text_field :destination_lat
-  .field
-    = f.label :destination_long
-    = f.text_field :destination_long
-  .field
     = f.label :address
     = f.text_field :address
   .field
@@ -37,10 +22,7 @@
     = f.label :customer_phone
     = f.text_field :customer_phone
   .field
-    = f.label :charge
-    = f.number_field :charge
-  .field
-    = f.label :product_name
+    = f.label "Item Shipped"
     = f.text_field :product_name
   .actions
     = f.submit 'Save'

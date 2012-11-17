@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(params[:order])
+    @order = current_merchant.orders.build(params[:order])
 
     respond_to do |format|
       if @order.save

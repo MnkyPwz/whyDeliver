@@ -20,4 +20,7 @@ class Merchant < ActiveRecord::Base
     response = JSON.parse(open(url).read)
     self.update_attributes(:lat => response["results"][0]["geometry"]["location"]["lat"], :long => response["results"][0]["geometry"]["location"]["lng"])
   end
+
+  has_many :orders
+
 end

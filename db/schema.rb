@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117074600) do
+ActiveRecord::Schema.define(:version => 20121117105142) do
 
   create_table "merchants", :force => true do |t|
     t.string   "name"
@@ -36,10 +36,16 @@ ActiveRecord::Schema.define(:version => 20121117074600) do
   add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true
   add_index "merchants", ["reset_password_token"], :name => "index_merchants_on_reset_password_token", :unique => true
 
+  create_table "order_statuses", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "orders", :force => true do |t|
     t.integer  "merchant_id"
     t.integer  "transporter_id"
-    t.integer  "status_id"
+    t.integer  "order_status_id"
     t.float    "destination_lat"
     t.float    "destination_long"
     t.string   "address"
@@ -51,12 +57,6 @@ ActiveRecord::Schema.define(:version => 20121117074600) do
     t.string   "product_name"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-  end
-
-  create_table "statuses", :force => true do |t|
-    t.string   "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "transporters", :force => true do |t|
