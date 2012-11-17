@@ -1,4 +1,7 @@
 class Merchant < ActiveRecord::Base
+
+  require 'open-uri'
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -17,4 +20,7 @@ class Merchant < ActiveRecord::Base
     response = JSON.parse(open(url).read)
     self.update_attributes(:lat => response["results"][0]["geometry"]["location"]["lat"], :long => response["results"][0]["geometry"]["location"]["lng"])
   end
+
+  has_many :orders
+
 end
