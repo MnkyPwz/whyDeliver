@@ -6,6 +6,7 @@ WhyDeliver::Application.routes.draw do
 
   resources :statuses
 
+  get "/orders/callback" => "orders#callback"
   resources :orders
   
   devise_for :transporters

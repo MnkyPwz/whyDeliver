@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  require 'open-uri'
+  
   # GET /orders
   # GET /orders.json
   def index
@@ -40,7 +42,17 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = current_merchant.orders.build(params[:order])
+    # @order = current_merchant.orders.build(params[:order])
+    
+    Stripe.api_key = STRIPE_TEST_SECRET
+    token = params[:stripeToken]
+    
+    charge = Stripe::Charge.create(
+      :amount => 2000,
+      :currency => "usd",
+      :card => token,
+      :description => "payinguser@example.com"
+    )
 
     respond_to do |format|
       if @order.save
@@ -51,6 +63,13 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def callback
+    Stripe.api_key = STRIPE_TEST_SECRET
+    
+    event_json = JSON.parse(request.body.read)
+    raise event_json.to_yaml
   end
 
   # PUT /orders/1
