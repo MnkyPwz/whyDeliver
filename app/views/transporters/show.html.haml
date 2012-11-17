@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @transporter.first_name
+%p
+  %b Last name:
+  = @transporter.last_name
+%p
+  %b Email:
+  = @transporter.email
+%p
+  %b Phone:
+  = @transporter.phone
+%p
+  %b Current lat:
+  = @transporter.current_lat
+%p
+  %b Current long:
+  = @transporter.current_long
+
+= link_to 'Edit', edit_transporter_path(@transporter)
+\|
+= link_to 'Back', transporters_path
