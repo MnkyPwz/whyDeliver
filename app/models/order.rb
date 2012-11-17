@@ -42,4 +42,6 @@ class Order < ActiveRecord::Base
       :customer => Merchant.find(2).stripe_customer_id )
   end
 
+
+
 end

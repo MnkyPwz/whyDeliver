@@ -35,7 +35,7 @@ controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', '
   $scope.createOrder = function() {
     $scope.order = 
     Order.save(
-
+      
     );
   };
 

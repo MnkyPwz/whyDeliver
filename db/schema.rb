@@ -60,10 +60,7 @@ ActiveRecord::Schema.define(:version => 20121117190553) do
     t.string   "product_name"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-<<<<<<< HEAD
     t.float    "delivery_distance"
-=======
->>>>>>> db07c03fa0ffb5b1d626eaa798e2f0524b6149c3
   end
 
   create_table "transporters", :force => true do |t|
