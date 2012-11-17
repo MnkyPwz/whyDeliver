@@ -11,7 +11,11 @@ class Order < ActiveRecord::Base
   belongs_to :order_status
 
   before_create :geolocate_address, :calculate_shipping_distance
+
+  after_update :order_acceptance_email
+
   after_commit :charge_customer
+
   
   private
   def geolocate_address
@@ -42,6 +46,10 @@ class Order < ActiveRecord::Base
       :customer => self.merchant.stripe_customer_id )
   end
 
-
+  def order_acceptance_email
+    if (self.order_status_id_changed? && self.order_status.title == 'accepted')
+      CustomerMailer.accepted_order(self).deliver
+    end
+  end
 
 end

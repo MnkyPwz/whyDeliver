@@ -9,20 +9,30 @@ class ApiController < ApplicationController
 
 
   def get_delivery
-    @delivery = { "transporter_name" => "Big Tony", "item" => "Box of Tees" }
+    @delivery = Order.first
     respond_with @delivery
+
+
+    #@delivery = { "transporter_name" => "Big Tony", "item" => "Box of Tees" }
+    #respond_with @delivery
 
   end
 
   def get_merchant
-    @merchant = { "merchant_name" => "World of T-shirts", "address" => "1500 FU Ln" }
-    respond_with @merchant
+    @merchant = Merchant.first
+    respond_with @merchant 
+
+    #@merchant = { "merchant_name" => "World of T-shirts", "address" => "1500 FU Ln" }
+    #respond_with @merchant
 
   end
 
   def get_transporter
-    @transporter = { "transporter_name" => "Big Tony", "phone" => "773-232-2323" }
+    @transporter = Transporter.first
     respond_with @transporter
+    
+    #@transporter = { "transporter_name" => "Big Tony", "phone" => "773-232-2323" }
+    #respond_with @transporter
 
   end
 
