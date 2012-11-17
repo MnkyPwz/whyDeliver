@@ -14,7 +14,9 @@ WhyDeliver::Application.routes.draw do
 
   devise_for :merchants
 
-  # resources :merchants, :only => [:show]
+  resources :merchants
+  
+  get "/fakeiphone" => "pages#fakeiphone", :as => 'fakeiphone'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

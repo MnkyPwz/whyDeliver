@@ -60,11 +60,9 @@ class TransportersController < ApplicationController
 
     respond_to do |format|
       if @transporter.update_attributes(params[:transporter])
-        format.html { redirect_to @transporter, notice: 'Transporter was successfully updated.' }
-        format.json { head :no_content }
+        render :nothing => true
       else
-        format.html { render action: "edit" }
-        format.json { render json: @transporter.errors, status: :unprocessable_entity }
+        render :nothing => true
       end
     end
   end

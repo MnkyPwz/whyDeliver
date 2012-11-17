@@ -9,4 +9,7 @@ class PagesController < ApplicationController
   def dashboard
     @my_orders = current_merchant.orders
   end
+  
+  def fakeiphone
+  end
 end

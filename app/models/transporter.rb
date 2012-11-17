@@ -7,5 +7,5 @@ class Transporter < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :current_lat, :current_long, :email, :first_name, :last_name, :phone
+  attr_accessible :current_lat, :current_long, :email, :first_name, :last_name, :phone, :available
 end
