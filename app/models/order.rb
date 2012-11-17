@@ -33,4 +33,6 @@ class Order < ActiveRecord::Base
     self.delivery_distance = response["rows"][0]["elements"][0]["distance"]["text"].split(/\s/)[0]
   end
 
+
+
 end
