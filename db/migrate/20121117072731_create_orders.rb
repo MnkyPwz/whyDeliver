@@ -10,7 +10,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :customer_first_name
       t.string :customer_last_name
       t.string :customer_email
-      t.string :customer_phone
+      t.integer :customer_phone
       t.integer :charge
       t.string :product_name
 
