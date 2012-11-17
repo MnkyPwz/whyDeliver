@@ -11,6 +11,8 @@ class Order < ActiveRecord::Base
   belongs_to :order_status
 
   before_create :geolocate_address, :calculate_shipping_distance
+
+  after_update :order_acceptance_email
   
   private
   def geolocate_address
@@ -33,6 +35,10 @@ class Order < ActiveRecord::Base
     self.delivery_distance = response["rows"][0]["elements"][0]["distance"]["text"].split(/\s/)[0]
   end
 
-
+  def order_acceptance_email
+    if (self.order_status_id_changed? && self.order_status.title == 'accepted')
+      CustomerMailer.accepted_order(self).deliver
+    end
+  end
 
 end
