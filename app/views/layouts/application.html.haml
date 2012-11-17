@@ -1,10 +1,98 @@
-!!!
-%html
-  %head
-    %title WhyDeliver
-    = stylesheet_link_tag    "application", :media => "all"
-    %script{:src => "https://js.stripe.com/v1/", :type => "text/javascript"}
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-  %body
-    = yield
+!!! 5
+
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="no-js ie6 ltie7 ltie8 ltie9" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7 ltie8 ltie9" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8 ltie9" lang="en"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+%head
+
+  /[if IE]
+
+  %meta{:charset => 'utf-8'}
+
+  %title WhyDeiliver
+  %meta{:name => 'description', :content => 'WhyDeliver'}
+  %meta{:name => 'copyright', :content => 'Copyright whydeliver.com'}
+  %meta{:name => 'DC.title', :content => 'WhyDeliver'}
+  %meta{:name => 'DC.subject', :content => 'WhyDeliver'}
+  %meta{:name => 'DC.creator', :content => 'created by Greg Williams - @vgdub'}
+  
+  -# These are Facebook Sharing Meta Tags
+  %meta{:property => 'og:title', :content => 'WhyDeliver'}
+  %meta{:property => 'og:description', :content => 'WhyDeliver'}
+  / %meta{:property => 'og:image', :content => '/_/i/fav/facebook.png'}
+  %meta{:property => 'og:url', :content => 'http://whydeliver.com/'}
+
+  -# These are Various Browser and Mobile Meta Tags
+  %meta{:'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
+  %meta{:'http-equiv' => 'imagetoolbar', :content => 'false'}
+  %meta{:'http-equiv' => 'cleartype', :content => 'on'}
+  %meta{:name => 'HandheldFriendly', :content => 'True'}
+  %meta{:name => 'MobileOptimized', :content => '320'}
+  %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+
+  %script{:src => "https://js.stripe.com/v1/", :type => "text/javascript"}
+
+  %script{:type => 'text/javascript', :src => '//use.typekit.net/btu6yro.js'}
+  %script{:type => 'text/javascript'}
+    try{Typekit.load();}catch(e){}
+  
+  =stylesheet_link_tag 'application'
+  
+  
+
+  %script
+    var b = document.documentElement;
+    b.setAttribute('data-useragent',  navigator.userAgent);
+    b.setAttribute('data-platform', navigator.platform );
+  
+  -# Remember to Customize this build
+  =javascript_include_tag 'js/modernizr.js'
+
+  / -# Favicons
+  / %link{:rel => 'apple-touch-icon-precomposed', :sizes => '114x114', :href => '/_/i/fav/apple-touch-icon-114.png'}
+  / %link{:rel => 'apple-touch-icon-precomposed', :sizes => '72x72', :href => '/_/i/fav/apple-touch-icon-72.png'}
+  / %link{:rel => 'apple-touch-icon-precomposed', :href => '/_/i/fav/apple-touch-icon-precomposed.png'}
+  / %link{:rel => 'shortcut icon', :href => '/_/i/fav/favicon.ico'}
+
+%body#main
+
+  = yield
+
+  %script{:src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'}
+  %script !window.jQuery && document.write(unescape('%3Cscript src="/assets/js/jquery.js"%3E%3C/script%3E'))
+  =javascript_include_tag '/assets/js/plugins.js'
+  =javascript_include_tag '/assets/js/functions.js'
+  =javascript_include_tag '/assets/js/ios-orientationchange-fix.js'
+
+  =javascript_include_tag 'redesign'
+  
+  /[if (lt IE 9) & (!IEMobile)]
+    =javascript_include_tag '/assets/js/selectivizr.js'
+    =javascript_include_tag '/assets/js/respond.js'
+  
+  /[if (lt IE 8) & (!IEMobile)]
+    =javascript_include_tag '/assets/js/imgsizer.js'
+
+    %script
+      addLoadEvent(function() {
+      if (document.getElementById && document.getElementsByTagName) {
+      var aImgs = document.getElementById("content").getElementsByTagName("img");
+      imgSizer.collate(aImgs);
+      }
+      });
+      
+
+  %script
+    var _gaq=[['_setAccount','UA-24890223-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+
+</html>
+
+    
+

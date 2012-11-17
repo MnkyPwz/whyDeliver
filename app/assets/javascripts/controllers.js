@@ -2,6 +2,45 @@
 
 /* Controllers */
 
+
+controllers.controller('orderCntl', ['$scope', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $routeParams, $location, Order, Merchant){
+
+  $scope.name = 'orderCntl';
+  $scope.params = $routeParams
+  $scope.order = Order.get();
+
+  $scope.getOrder = function() {
+    $scope.order = Order.get({
+      search:$scope.params.tracking
+      },
+      function(data){ //success
+        $scope.order = data
+      },
+      function(data) {
+        // error handling
+      }
+    );
+
+
+  };
+
+}]);
+
+controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $routeParams, $location, Merchant, Order){
+
+  $scope.cntlName = 'merchantCntl';
+  $scope.params = $routeParams
+  $scope.merchant = Merchant.get();
+
+  $scope.createOrder = function() {
+    $scope.order = 
+    Order.save(
+
+    );
+  };
+
+}]);
+
 // var TweetListCtrl = ['$scope', '$http', function($scope, $http){
 // 	$http.get('tweets.json').success(function(data) {
 //   $scope.tweets = data.statuses;

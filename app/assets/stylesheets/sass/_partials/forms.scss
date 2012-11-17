@@ -1,0 +1,75 @@
+input[type='text'],
+input[type='email'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='password'],
+textarea {
+   
+}
+
+input {
+  border: none;
+  border-image: none;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  color: $form-grey;
+  border-bottom: 2px dotted lighten($form-grey, 30%);
+  box-shadow: none;
+  width: 100%;
+  padding: 10px 0;
+  @include background(transparent);
+  @include float;
+  @extend %box-emboss;
+  &:active, &:focus {
+    color: lighten($form-grey, 20%);
+    outline-color: $secondaryColor;
+    outline-width: 3px;
+    outline-style: none;
+    border-bottom: 2px dotted lighten($secondaryColor, 20%);
+  }
+  &[type='text'] {
+    
+  }
+  &[type='email'] {
+    
+  }
+  &[type='search'] {
+    
+  }
+  &[type='tel'] {
+    
+  }
+  &[type='url'] {
+    
+  }
+  &[type='password'] {
+    
+  }
+  &[type='checkbox'] {
+    // @include background($secondaryColor);
+    // color: $secondaryColor;
+    // @include appearance(none);
+    margin: 5px 10px;
+    height: 10px;
+    width: 10px;
+  }
+  &[type='submit'] {
+    @include button($secondaryColor);  
+  }
+}
+
+button {
+  @extend %button;
+}
+
+label {
+  font-size: 12px;
+  line-height: 12px;
+  display: block;
+  margin: 5px 10px;
+  color: lighten($form-grey, 20%);
+  @include float;
+}
+
