@@ -1,8 +1,5 @@
 class PagesController < ApplicationController
 
-  before_filter :authenticate_merchant!, except: [:landing]
-
-
   def landing
   end
 

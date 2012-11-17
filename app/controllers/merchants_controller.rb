@@ -42,15 +42,15 @@ class MerchantsController < ApplicationController
   def create
     @merchant = Merchant.new(params[:merchant])
     
-    Stripe.api_key = STRIPE_TEST_SECRET
-    token = params[:stripeToken]
-
-    customer = Stripe::Customer.create(
-      :card => token,
-      :description => "Andrew Chambers"
-    )
+    # Stripe.api_key = STRIPE_TEST_SECRET
+    # token = params[:stripeToken]
+    # 
+    # customer = Stripe::Customer.create(
+    #   :card => token,
+    #   :description => "Andrew Chambers"
+    # )
      
-    raise "Check if Customer Created"
+    # raise "Check if Customer Created"
     # charge = Stripe::Charge.create(
     #   :amount => 2000,
     #   :currency => "usd",

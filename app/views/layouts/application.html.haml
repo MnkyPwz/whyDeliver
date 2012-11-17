@@ -7,9 +7,4 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    - if merchant_signed_in?
-      = link_to("sign out", destroy_merchant_session_path, :method => :delete)
-      |
-      = link_to("dashboard", dashboard_path)
-
     = yield
