@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20121117190553) do
   create_table "orders", :force => true do |t|
     t.integer  "merchant_id"
     t.integer  "transporter_id"
-    t.integer  "order_status_id"
+    t.string   "order_status"
     t.float    "destination_lat"
     t.float    "destination_long"
     t.string   "address"

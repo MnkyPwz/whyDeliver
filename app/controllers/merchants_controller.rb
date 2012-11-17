@@ -1,5 +1,5 @@
 class MerchantsController < ApplicationController
-  before_filter :require_merchant
+  # before_filter :require_merchant, :except => ['new', 'create']
 
   # GET /merchants
   # GET /merchants.json
@@ -43,6 +43,7 @@ class MerchantsController < ApplicationController
   # POST /merchants.json
   def create
     @merchant = Merchant.new(params[:merchant])
+    session[:merchant_id] = @merchant.id
     
     Stripe.api_key = STRIPE_TEST_SECRET
     token = params[:stripeToken]

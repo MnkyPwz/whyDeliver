@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
   # PUT /orders/1.json
   def update
     @order = Order.find(params[:id])
-    @order.update_attributes(:order_status_id => OrderStatus.where(:title => "accepted").first.id)
+    @order.update_attributes(:order_status =>"accepted")
 
     respond_to do |format|
       if @order.update_attributes(params[:order])

@@ -2,17 +2,16 @@ class Order < ActiveRecord::Base
 
   require "open-uri"
 
-  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status_id, :transporter_id, :delivery_distance
+  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status, :transporter_id, :delivery_distance
 
   validates :address, :customer_first_name, :customer_last_name, :customer_email, :customer_phone, :product_name, :presence => :true
 
 
   belongs_to :merchant
-  belongs_to :order_status
 
   before_create :geolocate_address, :calculate_shipping_distance
 
-  after_update :order_acceptance_email
+  # after_update :order_acceptance_email, :calculate_driver_eta
 
   after_commit :charge_customer
 
@@ -28,8 +27,7 @@ class Order < ActiveRecord::Base
   before_create :default_values
 
   def default_values
-    # if this instance's order_status_id attribute already exists, use it, otherwise set it equal to whatev
-    self.order_status ||= OrderStatus.find_by_title("pending")
+    self.order_status = "pending"
   end
 
   def calculate_shipping_distance  
@@ -47,9 +45,13 @@ class Order < ActiveRecord::Base
   end
 
   def order_acceptance_email
-    if (self.order_status_id_changed? && self.order_status.title == 'accepted')
+    if (self.order_status_changed? && self.order_status == 'accepted')
       CustomerMailer.accepted_order(self).deliver
     end
+  end
+  
+  def calculate_driver_eta
+    raise "TRIGGERED"
   end
 
 end

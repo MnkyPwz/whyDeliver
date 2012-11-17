@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.integer :merchant_id
       t.integer :transporter_id
-      t.integer :status_id
+      t.string :order_status
       t.float :destination_lat
       t.float :destination_long
       t.string :address
