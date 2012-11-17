@@ -1,5 +1,11 @@
 WhyDeliver::Application.routes.draw do
 
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   get "pages/dashboard", :as => "dashboard"
 
   root :to => "pages#dashboard"

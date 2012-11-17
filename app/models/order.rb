@@ -11,6 +11,7 @@ class Order < ActiveRecord::Base
   belongs_to :order_status
 
   before_create :geolocate_address, :calculate_shipping_distance
+  after_commit :charge_customer
   
   private
   def geolocate_address
@@ -31,6 +32,14 @@ class Order < ActiveRecord::Base
     url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
     response = JSON.parse(open(url).read)
     self.delivery_distance = response["rows"][0]["elements"][0]["distance"]["text"].split(/\s/)[0]
+    self.charge = self.delivery_distance
+  end
+  
+  def charge_customer
+    charge = Stripe::Charge.create(
+      :amount =>  self.charge,
+      :currency => "usd",
+      :customer => Merchant.find(2).stripe_customer_id )
   end
 
 end
