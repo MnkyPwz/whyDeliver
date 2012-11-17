@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117074600) do
+ActiveRecord::Schema.define(:version => 20121117100906) do
 
   create_table "merchants", :force => true do |t|
     t.string   "name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20121117074600) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "available"
   end
 
   add_index "transporters", ["email"], :name => "index_transporters_on_email", :unique => true

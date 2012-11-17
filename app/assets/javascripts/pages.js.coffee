@@ -1,3 +1,17 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  $("#clock-in").on "click", (e) ->
+    transporter_id = $(e.target).attr("data-id")
+    $.ajax
+      url: "/transporters/#{transporter_id}"
+      type: "PUT"
+      data: { transporter: { available: true } }
+      
+  $("#clock-out").on "click", (e) ->
+    transporter_id = $(e.target).attr("data-id")
+    $.ajax
+      url: "/transporters/#{transporter_id}"
+      type: "PUT"
+      data: { transporter: { available: false } }
+    
+  $("#accept-order").on "click", ->
+    alert "not ready yet"
