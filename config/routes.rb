@@ -1,10 +1,8 @@
 WhyDeliver::Application.routes.draw do
 
-  get "sessions/new"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
+  get "/sign_in" => "sessions#new", :as => 'sign_in'
+  post "/sign_in" => "sessions#create", :as => 'sign_in'
+  get "/sign_out" => "sessions#destroy", :as => "sign_out"
 
   get "pages/dashboard", :as => "dashboard"
 

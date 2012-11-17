@@ -18,3 +18,4 @@
 //= require filters.js
 //= require services.js
 //= require angular-resource.min.js
+//= require pages

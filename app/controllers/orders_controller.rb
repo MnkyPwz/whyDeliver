@@ -42,7 +42,6 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    current_merchant = Merchant.last
     @order = current_merchant.orders.build(params[:order])
     
     respond_to do |format|
