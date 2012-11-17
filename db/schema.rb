@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20121117185447) do
   add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true
   add_index "merchants", ["reset_password_token"], :name => "index_merchants_on_reset_password_token", :unique => true
 
+  create_table "order_statuses", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "orders", :force => true do |t|
     t.integer  "merchant_id"
     t.integer  "transporter_id"
@@ -54,12 +60,6 @@ ActiveRecord::Schema.define(:version => 20121117185447) do
     t.string   "product_name"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-  end
-
-  create_table "statuses", :force => true do |t|
-    t.string   "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "transporters", :force => true do |t|
