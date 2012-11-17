@@ -1,0 +1,41 @@
+%h1 Listing orders
+
+%table
+  %tr
+    %th Merchant
+    %th Transporter
+    %th Status
+    %th Destination lat
+    %th Destination long
+    %th Address
+    %th Customer first name
+    %th Customer last name
+    %th Customer email
+    %th Customer phone
+    %th Charge
+    %th Product name
+    %th
+    %th
+    %th
+
+  - @orders.each do |order|
+    %tr
+      %td= order.merchant_id
+      %td= order.transporter_id
+      %td= order.status_id
+      %td= order.destination_lat
+      %td= order.destination_long
+      %td= order.address
+      %td= order.customer_first_name
+      %td= order.customer_last_name
+      %td= order.customer_email
+      %td= order.customer_phone
+      %td= order.charge
+      %td= order.product_name
+      %td= link_to 'Show', order
+      %td= link_to 'Edit', edit_order_path(order)
+      %td= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Order', new_order_path
