@@ -21,7 +21,7 @@ class ApiController < ApplicationController
   end
 
   def get_transporter
-    @transporter = { "transporter_name" => "Big Tony" }
+    @transporter = { "transporter_name" => "Big Tony", "phone" => "773-232-2323" }
     respond_with @transporter
 
   end
