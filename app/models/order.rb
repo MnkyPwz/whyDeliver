@@ -10,13 +10,14 @@ class Order < ActiveRecord::Base
   belongs_to :merchant
   belongs_to :order_status
 
-  after_commit :geolocate_address
+  before_save :geolocate_address
   
   private
   def geolocate_address
     url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{self.address.gsub(/\s/, '+')}&sensor=true"
     response = JSON.parse(open(url).read)
-    self.update_attributes(:destination_lat => response["results"][0]["geometry"]["location"]["lat"], :destination_long => response["results"][0]["geometry"]["location"]["lng"])
+    self.destination_lat = response["results"][0]["geometry"]["location"]["lat"]
+    self.destination_long = response["results"][0]["geometry"]["location"]["lng"]
   end
 
   before_create :default_values
