@@ -3,9 +3,9 @@
 /* App Module */
 
 
-var services = angular.module('hashtoolkitServices', []);
-var controllers = angular.module('hashtoolkitControllers', []);
-var app = angular.module('hashtoolkit', ['ngResource', 'hashtoolkitServices', 'hashtoolkitControllers']);
+var services = angular.module('whydeliverServices', []);
+var controllers = angular.module('whydeliverControllers', []);
+var app = angular.module('whydeliver', ['ngResource', 'whydeliverServices', 'whydeliverControllers']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
