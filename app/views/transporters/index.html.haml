@@ -1,0 +1,29 @@
+%h1 Listing transporters
+
+%table
+  %tr
+    %th First name
+    %th Last name
+    %th Email
+    %th Phone
+    %th Current lat
+    %th Current long
+    %th
+    %th
+    %th
+
+  - @transporters.each do |transporter|
+    %tr
+      %td= transporter.first_name
+      %td= transporter.last_name
+      %td= transporter.email
+      %td= transporter.phone
+      %td= transporter.current_lat
+      %td= transporter.current_long
+      %td= link_to 'Show', transporter
+      %td= link_to 'Edit', edit_transporter_path(transporter)
+      %td= link_to 'Destroy', transporter, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Transporter', new_transporter_path

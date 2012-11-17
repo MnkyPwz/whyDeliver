@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @merchant.name
+%p
+  %b Email:
+  = @merchant.email
+%p
+  %b Phone:
+  = @merchant.phone
+%p
+  %b Address:
+  = @merchant.address
+%p
+  %b Lat:
+  = @merchant.lat
+%p
+  %b Long:
+  = @merchant.long
+
+= link_to 'Edit', edit_merchant_path(@merchant)
+\|
+= link_to 'New Order', new_order_path(:merchant_id => @merchant.id)
+
