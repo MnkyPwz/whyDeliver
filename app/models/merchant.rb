@@ -9,10 +9,12 @@ class Merchant < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :password_digest, :remember_me
   attr_accessible :address, :email, :lat, :long, :name, :phone
   
-  after_commit :geolocate_address
+  has_secure_password
+  
+  # before_create :geolocate_address
   
   private
   def geolocate_address

@@ -40,7 +40,6 @@ class MerchantsController < ApplicationController
   # POST /merchants
   # POST /merchants.json
   def create
-    raise params.to_yaml
     @merchant = Merchant.new(params[:merchant])
     
     Stripe.api_key = STRIPE_TEST_SECRET
@@ -51,7 +50,7 @@ class MerchantsController < ApplicationController
       :description => "Andrew Chambers"
     )
      
-    raise "Check if Customer Created" 
+    raise "Check if Customer Created"
     # charge = Stripe::Charge.create(
     #   :amount => 2000,
     #   :currency => "usd",

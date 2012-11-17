@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117162817) do
+ActiveRecord::Schema.define(:version => 20121117185447) do
 
   create_table "merchants", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20121117162817) do
     t.string   "last_sign_in_ip"
     t.string   "stripe_customer_id"
     t.string   "last_four_digits"
+    t.string   "password_digest"
   end
 
   add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true

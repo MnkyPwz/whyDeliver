@@ -9,11 +9,7 @@ WhyDeliver::Application.routes.draw do
   get "/orders/callback" => "orders#callback"
   resources :orders
   
-  devise_for :transporters
-
-  # resources :transporters
-
-  devise_for :merchants
+  resources :transporters
 
   resources :merchants
   
