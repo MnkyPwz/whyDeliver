@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    current_merchant = Merchant.find(9)
+    current_merchant = Merchant.find(1)
     @order = current_merchant.orders.build(params[:order])
 
     respond_to do |format|

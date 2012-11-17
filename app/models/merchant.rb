@@ -8,7 +8,7 @@ class Merchant < ActiveRecord::Base
   
   has_secure_password
   
-  before_save :geolocate_address
+  before_create :geolocate_address
   
   private
   def geolocate_address

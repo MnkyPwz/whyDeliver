@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
 
   require "open-uri"
 
-  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status_id, :transporter_id
+  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status_id, :transporter_id, :delivery_distance
 
   validates :address, :customer_first_name, :customer_last_name, :customer_email, :customer_phone, :product_name, :presence => :true
 
@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   belongs_to :merchant
   belongs_to :order_status
 
-  after_commit :geolocate_address, :calculate_shipping_distance
+  before_create :geolocate_address, :calculate_shipping_distance
   
   private
   def geolocate_address
@@ -28,9 +28,9 @@ class Order < ActiveRecord::Base
   end
 
   def calculate_shipping_distance  
-    url = "http://maps.googleapis.com/maps/api/distancematrix/output?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
+    url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
     response = JSON.parse(open(url).read)
-    self.update_attributes(:delivery_distance => response["rows"][0]["elements"][0]["distance"]["value"])
+    self.delivery_distance = response["rows"][0]["elements"][0]["distance"]["text"].split(/\s/)[0]
   end
 
 end
