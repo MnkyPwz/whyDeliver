@@ -4,6 +4,9 @@ class Order < ActiveRecord::Base
 
   attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status_id, :transporter_id
 
+  validates :address, :customer_first_name, :customer_last_name, :customer_email, :customer_phone, :product_name, :presence => :true
+
+
   belongs_to :merchant
   belongs_to :order_status
 

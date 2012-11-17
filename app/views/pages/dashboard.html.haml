@@ -1,13 +1,8 @@
-%form#payment-form{:action => orders_url, :method => "POST"}
-  .form-row
-    %label Card Number
-    %input.card-number{:autocomplete => "off", :size => "20", :type => "text"}/
-  .form-row
-    %label CVC
-    %input.card-cvc{:autocomplete => "off", :size => "4", :type => "text"}/
-  .form-row
-    %label Expiration (MM/YYYY)
-    %input.card-expiry-month{:size => "2", :type => "text"}/
-    %span /
-    %input.card-expiry-year{:size => "4", :type => "text"}/
-  %button.submit-button{:type => "submit"} Create an Order
+%h1 Pages#dashboard
+%p 
+  -@my_orders.each do |order|
+    =order.address
+    %br
+
+%p
+  =link_to("create order", new_order_path)

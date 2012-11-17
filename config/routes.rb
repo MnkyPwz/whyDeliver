@@ -1,6 +1,6 @@
 WhyDeliver::Application.routes.draw do
 
-  get "pages/dashboard"
+  get "pages/dashboard", :as => "dashboard"
 
   root :to => "pages#dashboard"
 
@@ -11,7 +11,7 @@ WhyDeliver::Application.routes.draw do
   
   devise_for :transporters
 
-  resources :transporters
+  # resources :transporters
 
   devise_for :merchants
 
