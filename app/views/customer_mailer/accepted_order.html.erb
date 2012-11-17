@@ -1,7 +1,10 @@
 <html>
 <body>
-
-	
-
+	<%= order = @order %>
+	<h5>Hey <%= @order.customer_first_name %>,</h5>
+	<p>Click <%= link_to 'here', order %> to track your order through WhyDeliver.</p>
+	</br>
+	<p>Thanks,</p>
+	<p>Jimmy</p>
 </body>
 </html>

@@ -13,15 +13,18 @@ accepted = OrderStatus.create(:title => "accepted")
 picked_up = OrderStatus.create(:title => "picked_up")
 en_route = OrderStatus.create(:title => "en_route")
 delivered = OrderStatus.create(:title => "delivered")
-puts "Created Order Statuses..."
+puts "Created Order Statuses."
+
 
 Merchant.delete_all
+puts "Deleting merchants..."
 rudys_flowers = Merchant.create(:name => "Rudy's Flower Shop",
                                 :phone => 3127725636,
                                 :address => "222 W. Ontario, Chicago, IL",
                                 :email => "rudyonrails@gmail.com",
                                 :password => "rudysflowers",
                                 :password_confirmation => "rudysflowers")
+puts "Created a merchant."
 
 Order.delete_all
 flowers_to_greg = rudys_flowers.orders.build(:address => "222 W. Merchandise Mart",
@@ -32,4 +35,4 @@ flowers_to_greg = rudys_flowers.orders.build(:address => "222 W. Merchandise Mar
                                              :product_name => "Dozen Roses")
 flowers_to_greg.save  
 
-puts "In production, must set two environment variables (whydeliver_gmail_username and whydeliver_gmail_password"                                           
+puts "In production, be sure to set two environment variables (whydeliver_gmail_username and whydeliver_gmail_password"                                           
