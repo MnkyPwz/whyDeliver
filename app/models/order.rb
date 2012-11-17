@@ -11,7 +11,11 @@ class Order < ActiveRecord::Base
   belongs_to :order_status
 
   before_create :geolocate_address, :calculate_shipping_distance
+
+  after_update :order_acceptance_email
+
   after_commit :charge_customer
+
   
   private
   def geolocate_address
@@ -32,16 +36,20 @@ class Order < ActiveRecord::Base
     url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
     response = JSON.parse(open(url).read)
     self.delivery_distance = response["rows"][0]["elements"][0]["distance"]["text"].split(/\s/)[0]
-    self.charge = self.delivery_distance
+    self.charge = (self.delivery_distance * 100)
   end
   
   def charge_customer
     charge = Stripe::Charge.create(
       :amount =>  self.charge,
       :currency => "usd",
-      :customer => Merchant.last.stripe_customer_id )
+      :customer => self.merchant.stripe_customer_id )
   end
 
-
+  def order_acceptance_email
+    if (self.order_status_id_changed? && self.order_status.title == 'accepted')
+      CustomerMailer.accepted_order(self).deliver
+    end
+  end
 
 end

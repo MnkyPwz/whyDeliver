@@ -56,57 +56,57 @@ controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', '
 
 // }]);
 
-controllers.controller('TwitterCntl', ['$scope', '$routeParams', '$location', 'Twitter', 'User', function($scope, $routeParams, $location, Twitter, User){
+// controllers.controller('TwitterCntl', ['$scope', '$routeParams', '$location', 'Twitter', 'User', function($scope, $routeParams, $location, Twitter, User){
 	
-  $scope.name = "TwitterCntl";
-  $scope.params = $routeParams
-  $scope.hash = "#railsrumble"
-  $scope.user = User.get();
+//   $scope.name = "TwitterCntl";
+//   $scope.params = $routeParams
+//   $scope.hash = "#railsrumble"
+//   $scope.user = User.get();
 
-  // $scope.updateHashes = User.post({hash:$scope.hash});
+//   // $scope.updateHashes = User.post({hash:$scope.hash});
 
-  $scope.tweets = Twitter.get({
-      search:$scope.params.hash
-      },
-      function(data){ // success
-        $scope.tweets = data
-      },
-      function(data){
-        // error handling goes here
-      }
-    );
-  $scope.mostRecent = User.query('last_viewed');
+//   $scope.tweets = Twitter.get({
+//       search:$scope.params.hash
+//       },
+//       function(data){ // success
+//         $scope.tweets = data
+//       },
+//       function(data){
+//         // error handling goes here
+//       }
+//     );
+//   $scope.mostRecent = User.query('last_viewed');
 
-  $scope.searchHash = function() {
-    $location.path( "/hash/" + $scope.hash.replace("#",""));
-  };
+//   $scope.searchHash = function() {
+//     $location.path( "/hash/" + $scope.hash.replace("#",""));
+//   };
 
-  $scope.getHash = function() {
-    $scope.tweets = Twitter.get({search:$scope.params.hash.replace("#","")});
-  };
+//   $scope.getHash = function() {
+//     $scope.tweets = Twitter.get({search:$scope.params.hash.replace("#","")});
+//   };
 
-}]);
+// }]);
 
-controllers.controller('UserCntl', ['$scope', '$routeParams', 'User', function($scope, $routeParams, User){
+// controllers.controller('UserCntl', ['$scope', '$routeParams', 'User', function($scope, $routeParams, User){
 	
-  $scope.user = User.get();
-  $scope.params = $routeParams;
-  $scope.mostRecent = User.query('last_viewed');
-  $scope.search_param = "railsrumble"
+//   $scope.user = User.get();
+//   $scope.params = $routeParams;
+//   $scope.mostRecent = User.query('last_viewed');
+//   $scope.search_param = "railsrumble"
 
-  $scope.getHash = function() {
-    $scope.tweets = Twitter.get({search:$scope.params.hash})
-  };
+//   $scope.getHash = function() {
+//     $scope.tweets = Twitter.get({search:$scope.params.hash})
+//   };
 
-  $scope.updateHashes = User.hashes
+//   $scope.updateHashes = User.hashes
 
-  // $scope.updateTweets = function(hash) {
-  //   console.log(hash);
-  //   $scope.search_param = hash;
-  //   browser().navigateTo('#/hash/' + hash);
-  // };
+//   // $scope.updateTweets = function(hash) {
+//   //   console.log(hash);
+//   //   $scope.search_param = hash;
+//   //   browser().navigateTo('#/hash/' + hash);
+//   // };
 
-}]);
+// }]);
 
   // // Hashtag Submit Form
   // $scope.hashtaglist = [];

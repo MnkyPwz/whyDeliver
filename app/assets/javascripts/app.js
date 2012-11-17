@@ -9,9 +9,10 @@ var app = angular.module('whydeliver', ['ngResource', 'whydeliverServices', 'why
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-  		when('', {redirectTo: '/dashboard'}).
-      when('/dashboard', {templateUrl: '/assets/partials/user-show.html.erb',   controller: 'TwitterCntl'}).
-      when('/hash/:hash', {templateUrl: '/assets/partials/hash-detail.html.erb', controller: 'TwitterCntl'}).
+  		when('', {redirectTo: '/'}).
+      when('/', {templateUrl: '/assets/templates/profile.html.erb',   controller: 'merchantCntl'}).
+      when('/delivery', {templateUrl: '/assets/templates/create_delivery.html.erb', controller: 'orderCntl'}).
+      when('/tracking', {templateUrl: '/assets/templates/tracking.html.erb', controller: 'merchantCntl'}).
       otherwise({redirectTo: 'butter'});
 }]);
 
