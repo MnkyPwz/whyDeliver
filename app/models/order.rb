@@ -26,4 +26,8 @@ class Order < ActiveRecord::Base
     self.order_status ||= OrderStatus.find_by_title("pending")
   end
 
+  def calculate_distance  
+    
+  end
+
 end
