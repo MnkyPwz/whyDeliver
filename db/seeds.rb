@@ -12,3 +12,20 @@ accepted = OrderStatus.create(:title => "accepted")
 picked_up = OrderStatus.create(:title => "picked_up")
 en_route = OrderStatus.create(:title => "en_route")
 delivered = OrderStatus.create(:title => "delivered")
+
+Merchant.delete_all
+rudys_flowers = Merchant.create(:name => "Rudy's Flower Shop",
+                                :phone => 3127725636,
+                                :address => "222 W. Ontario, Chicago, IL",
+                                :email => "rudyonrails@gmail.com",
+                                :password => "rudysflowers",
+                                :password_confirmation => "rudysflowers")
+
+Order.delete_all
+flowers_to_greg = rudys_flowers.orders.build(:address => "222 W. Merchandise Mart",
+                                             :customer_first_name => "Greg",
+                                             :customer_last_name => "Williams",
+                                             :customer_email => "vincentgwilliams@gmail.com",
+                                             :customer_phone => "312-999-9999",
+                                             :product_name => "Dozen Roses")
+flowers_to_greg.save                                             

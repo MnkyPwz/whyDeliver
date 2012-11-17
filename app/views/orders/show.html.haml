@@ -1,20 +1,11 @@
 %p#notice= notice
 
 %p
-  %b Merchant:
-  = @order.merchant_id
+  %b Status:
+  = @order.order_status.title
 %p
   %b Transporter:
   = @order.transporter_id
-%p
-  %b Status:
-  = @order.order_status_id
-%p
-  %b Destination lat:
-  = @order.destination_lat
-%p
-  %b Destination long:
-  = @order.destination_long
 %p
   %b Address:
   = @order.address
