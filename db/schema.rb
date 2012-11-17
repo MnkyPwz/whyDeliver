@@ -11,33 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20121117072823) do
-
-  create_table "orders", :force => true do |t|
-    t.integer  "merchant_id"
-    t.integer  "transporter_id"
-    t.integer  "status_id"
-    t.float    "destination_lat"
-    t.float    "destination_long"
-    t.string   "address"
-    t.string   "customer_first_name"
-    t.string   "customer_last_name"
-    t.string   "customer_email"
-    t.integer  "customer_phone"
-    t.integer  "charge"
-    t.string   "product_name"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  create_table "statuses", :force => true do |t|
-    t.string   "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-=======
 ActiveRecord::Schema.define(:version => 20121117074600) do
 
   create_table "merchants", :force => true do |t|
@@ -63,6 +36,29 @@ ActiveRecord::Schema.define(:version => 20121117074600) do
   add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true
   add_index "merchants", ["reset_password_token"], :name => "index_merchants_on_reset_password_token", :unique => true
 
+  create_table "orders", :force => true do |t|
+    t.integer  "merchant_id"
+    t.integer  "transporter_id"
+    t.integer  "status_id"
+    t.float    "destination_lat"
+    t.float    "destination_long"
+    t.string   "address"
+    t.string   "customer_first_name"
+    t.string   "customer_last_name"
+    t.string   "customer_email"
+    t.integer  "customer_phone"
+    t.integer  "charge"
+    t.string   "product_name"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.string   "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "transporters", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -86,5 +82,4 @@ ActiveRecord::Schema.define(:version => 20121117074600) do
   add_index "transporters", ["email"], :name => "index_transporters_on_email", :unique => true
   add_index "transporters", ["reset_password_token"], :name => "index_transporters_on_reset_password_token", :unique => true
 
->>>>>>> e21a7df0ee259f9d9775912865fd0227e3c1f24e
 end
