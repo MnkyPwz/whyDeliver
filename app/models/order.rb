@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   belongs_to :merchant
   belongs_to :order_status
 
-  before_save :geolocate_address
+  after_commit :geolocate_address, :calculate_shipping_distance
   
   private
   def geolocate_address
@@ -25,6 +25,12 @@ class Order < ActiveRecord::Base
   def default_values
     # if this instance's order_status_id attribute already exists, use it, otherwise set it equal to whatev
     self.order_status ||= OrderStatus.find_by_title("pending")
+  end
+
+  def calculate_shipping_distance  
+    url = "http://maps.googleapis.com/maps/api/distancematrix/output?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
+    response = JSON.parse(open(url).read)
+    self.update_attributes(:delivery_distance => response["rows"][0]["elements"][0]["distance"]["value"])
   end
 
 end
