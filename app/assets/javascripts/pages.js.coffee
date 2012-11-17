@@ -1,5 +1,4 @@
 $ ->
-  alert "hello"
   $("#clock-in").on "click", (e) ->
     transporter_id = $(e.target).attr("data-id")
     $.ajax
@@ -30,7 +29,6 @@ $ ->
     return false
     
   stripeResponseHandler = (status, response) ->
-    console.log response
     if response.error
       $(".payment-errors").text response.error.message
       $(".submit-button").removeAttr "disabled"

@@ -1,4 +1,6 @@
 class MerchantsController < ApplicationController
+  before_filter :require_merchant
+
   # GET /merchants
   # GET /merchants.json
   def index
@@ -89,5 +91,10 @@ class MerchantsController < ApplicationController
       format.html { redirect_to merchants_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def require_merchant
+    @merchant = Merchant.find(session[:merchant_id])
   end
 end
