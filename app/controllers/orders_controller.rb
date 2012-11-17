@@ -42,17 +42,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    # @order = current_merchant.orders.build(params[:order])
-    
-    Stripe.api_key = STRIPE_TEST_SECRET
-    token = params[:stripeToken]
-    
-    charge = Stripe::Charge.create(
-      :amount => 2000,
-      :currency => "usd",
-      :card => token,
-      :description => "payinguser@example.com"
-    )
+    @order = current_merchant.orders.build(params[:order])
 
     respond_to do |format|
       if @order.save

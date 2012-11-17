@@ -40,7 +40,24 @@ class MerchantsController < ApplicationController
   # POST /merchants
   # POST /merchants.json
   def create
+    raise params.to_yaml
     @merchant = Merchant.new(params[:merchant])
+    
+    Stripe.api_key = STRIPE_TEST_SECRET
+    token = params[:stripeToken]
+
+    customer = Stripe::Customer.create(
+      :card => token,
+      :description => "Andrew Chambers"
+    )
+     
+    raise "Check if Customer Created" 
+    # charge = Stripe::Charge.create(
+    #   :amount => 2000,
+    #   :currency => "usd",
+    #   :card => token,
+    #   :description => "payinguser@example.com"
+    # )
 
     respond_to do |format|
       if @merchant.save
