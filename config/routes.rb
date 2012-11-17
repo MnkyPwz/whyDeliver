@@ -1,7 +1,16 @@
 WhyDeliver::Application.routes.draw do
+
   resources :statuses
 
   resources :orders
+  
+  devise_for :transporters
+
+  resources :transporters
+
+  devise_for :merchants
+
+  resources :merchants
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
