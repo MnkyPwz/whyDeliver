@@ -1,4 +1,5 @@
 $ ->
+  alert "hello"
   $("#clock-in").on "click", (e) ->
     transporter_id = $(e.target).attr("data-id")
     $.ajax
