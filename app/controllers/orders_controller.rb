@@ -56,10 +56,10 @@ class OrdersController < ApplicationController
   end
   
   def callback
-    Stripe.api_key = STRIPE_TEST_SECRET
-    
-    event_json = JSON.parse(request.body.read)
-    raise event_json.to_yaml
+    # Stripe.api_key = STRIPE_TEST_SECRET
+    # 
+    # event_json = JSON.parse(request.body.read)
+    # raise event_json.to_yaml
   end
 
   # PUT /orders/1

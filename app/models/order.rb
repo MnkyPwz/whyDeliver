@@ -11,10 +11,7 @@ class Order < ActiveRecord::Base
 
   before_create :geolocate_address, :calculate_shipping_distance
 
-  # after_update :order_acceptance_email, :calculate_driver_eta
-
-  after_commit :charge_customer
-
+  after_update :charge_customer, :order_acceptance_email, :calculate_driver_eta
   
   private
   def geolocate_address
@@ -38,10 +35,12 @@ class Order < ActiveRecord::Base
   end
   
   def charge_customer
-    charge = Stripe::Charge.create(
-      :amount =>  self.charge,
-      :currency => "usd",
-      :customer => self.merchant.stripe_customer_id )
+    if self.order_status_changed? && self.order_status == "accepted"
+      charge = Stripe::Charge.create(
+        :amount =>  self.charge,
+        :currency => "usd",
+        :customer => self.merchant.stripe_customer_id )
+    end
   end
 
   def order_acceptance_email
@@ -51,7 +50,6 @@ class Order < ActiveRecord::Base
   end
   
   def calculate_driver_eta
-    raise "TRIGGERED"
   end
 
 end
