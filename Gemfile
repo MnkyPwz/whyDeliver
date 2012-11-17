@@ -51,3 +51,4 @@ gem 'stripe_event'
 # gem 'debugger'
 
 gem 'devise'
+gem 'geocoder'
