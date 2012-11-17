@@ -7,11 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 OrderStatus.delete_all
+puts "Deleting Order Statuses..."
 pending = OrderStatus.create(:title => "pending")
 accepted = OrderStatus.create(:title => "accepted")
 picked_up = OrderStatus.create(:title => "picked_up")
 en_route = OrderStatus.create(:title => "en_route")
 delivered = OrderStatus.create(:title => "delivered")
+puts "Created Order Statuses..."
 
 Merchant.delete_all
 rudys_flowers = Merchant.create(:name => "Rudy's Flower Shop",
