@@ -39,7 +39,7 @@ class Order < ActiveRecord::Base
     charge = Stripe::Charge.create(
       :amount =>  self.charge,
       :currency => "usd",
-      :customer => Merchant.find(2).stripe_customer_id )
+      :customer => Merchant.last.stripe_customer_id )
   end
 
 

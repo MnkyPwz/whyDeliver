@@ -44,7 +44,6 @@ class MerchantsController < ApplicationController
     
     Stripe.api_key = STRIPE_TEST_SECRET
     token = params[:stripeToken]
-    raise token.to_yaml
     
     customer = Stripe::Customer.create(
       :card => token,
