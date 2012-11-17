@@ -27,7 +27,9 @@ Order.delete_all
 flowers_to_greg = rudys_flowers.orders.build(:address => "222 W. Merchandise Mart",
                                              :customer_first_name => "Greg",
                                              :customer_last_name => "Williams",
-                                             :customer_email => "vincentgwilliams@gmail.com",
+                                             :customer_email => "shahshaan@gmail.com",
                                              :customer_phone => "312-999-9999",
                                              :product_name => "Dozen Roses")
-flowers_to_greg.save                                             
+flowers_to_greg.save  
+
+puts "In production, must set two environment variables (whydeliver_gmail_username and whydeliver_gmail_password"                                           
