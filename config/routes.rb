@@ -1,5 +1,9 @@
 WhyDeliver::Application.routes.draw do
 
+  get "pages/dashboard"
+
+  root :to => "pages#dashboard"
+
   resources :statuses
 
   resources :orders
