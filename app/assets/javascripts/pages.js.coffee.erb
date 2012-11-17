@@ -13,8 +13,12 @@ $ ->
       type: "PUT"
       data: { transporter: { available: false } }
     
-  $("#accept-order").on "click", ->
-    alert "not ready yet"
+  $("#accept-order").on "click", (e) ->
+    transporter_id = $(e.target).attr("data-id")
+    $.ajax
+      url: "/orders/<%= Order.last.id %>"
+      type: "PUT"
+      data: { transporter: { id: transporter_id, driver_lat: 41.8883776, driver_long: -87.6365131} }
     
   $("#new_merchant").submit (event) ->
 
