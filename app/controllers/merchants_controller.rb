@@ -52,10 +52,12 @@ class MerchantsController < ApplicationController
     
     @merchant.update_attributes(:stripe_customer_id => customer["id"])
      
-    charge = Stripe::Charge.create(
-      :amount => 5000,
-      :currency => "usd",
-      :customer => @merchant.stripe_customer_id )
+    ## THIS IS THE CODE FOR CHARGING A MERCHANT 
+     
+    # charge = Stripe::Charge.create(
+    #   :amount => 5000,
+    #   :currency => "usd",
+    #   :customer => @merchant.stripe_customer_id )
 
     respond_to do |format|
       if @merchant.save
