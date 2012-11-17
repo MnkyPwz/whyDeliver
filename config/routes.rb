@@ -1,4 +1,6 @@
 WhyDeliver::Application.routes.draw do
+  devise_for :transporters
+
   resources :transporters
 
   devise_for :merchants
