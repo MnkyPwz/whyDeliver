@@ -1,4 +1,4 @@
-= form_for @merchant, :id => 'merchant-form' do |f|
+= form_for @merchant do |f|
   - if @merchant.errors.any?
     #error_explanation
       %h2= "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"

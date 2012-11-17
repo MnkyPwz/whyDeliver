@@ -4,7 +4,7 @@ class Merchant < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :password_digest, :remember_me
-  attr_accessible :address, :email, :lat, :long, :name, :phone
+  attr_accessible :address, :email, :lat, :long, :name, :phone, :stripe_customer_id, :last_four_digits
   
   has_secure_password
   

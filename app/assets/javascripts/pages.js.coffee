@@ -16,7 +16,7 @@ $ ->
   $("#accept-order").on "click", ->
     alert "not ready yet"
     
-  $("#merchant-form").submit (event) ->
+  $("#new_merchant").submit (event) ->
 
     $(".submit-button").attr "disabled", "disabled"
     Stripe.createToken
@@ -34,7 +34,7 @@ $ ->
       $(".payment-errors").text response.error.message
       $(".submit-button").removeAttr "disabled"
     else
-      form$ = $("#merchant-form") 
+      form$ = $("#new_merchant") 
       # token contains id, last4, and card type
       token = response["id"]
       # insert the token into the form so it gets submitted to the server
