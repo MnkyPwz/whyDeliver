@@ -11,7 +11,7 @@ app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
   		when('', {redirectTo: '/'}).
       when('/', {templateUrl: '/assets/templates/profile.html.erb',   controller: 'merchantCntl'}).
-      when('/delivery', {templateUrl: '/assets/templates/create_deliver.html.erb', controller: 'deliveryCntl'}).
+      when('/delivery', {templateUrl: '/assets/templates/create_delivery.html.erb', controller: 'orderCntl'}).
       when('/tracking', {templateUrl: '/assets/templates/tracking.html.erb', controller: 'merchantCntl'}).
       otherwise({redirectTo: 'butter'});
 }]);
