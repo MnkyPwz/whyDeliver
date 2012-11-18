@@ -3,42 +3,46 @@
 /* Controllers */
 
 
-controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $routeParams, $location, Merchant, Order){
+controllers.controller('merchantCntl', ['$scope', '$cookies', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $cookies, $routeParams, $location, Merchant, Order){
 
   $scope.cntlName = 'merchantCntl';
   $scope.params = $routeParams
   $scope.merchant = Merchant.get();
-  $scope.order = Order.get();
+  $scope.orders = Order.get();
 
-  $scope.createOrder = function() {
-    $scope.order = 
-    Order.save(
+  // $scope.createOrder = function() {
+  //   $scope.order = 
+  //   Order.save(
       
-    );
-  };
+  //   );
+  // };
 
 }]);
 
-controllers.controller('orderCntl', ['$scope', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $routeParams, $location, Order, Merchant){
+controllers.controller('orderCntl', ['$scope', '$cookies', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $cookies, $routeParams, $location, Order, Merchant){
 
   $scope.name = 'orderCntl';
   $scope.params = $routeParams
-  $scope.order = Order.get();
+  $scope.orders = Order.get();
 
-  $scope.trackOrder = function() {
-    $scope.order = Order.get({
-      id:$scope.params.id
-      },
-      function(data){ //success
-        $scope.order = data
-      },
-      function(data) {
-        // error handling
-      }
-    );
+  $scope.order = {};
 
+  $scope.update = function() {
+    Order.save({order:$scope.order});
+  }
 
-  };
+  // $scope.trackOrder = function() {
+  //   $scope.order = Order.get({
+  //     id:$scope.params.id
+  //     },
+  //     function(data){ //success
+  //       $scope.order = data
+  //     },
+  //     function(data) {
+  //       // error handling
+  //     }
+  //   );
+  // }
 
 }]);
 

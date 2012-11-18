@@ -25,7 +25,8 @@ WhyDeliver::Application.routes.draw do
 
 
   scope "api" do
-    get "/get_order" => "api#get_order"
+    get "/order" => "api#get_order"
+    post "/order" => "api#create_order"
     get "/get_transporter" => "api#get_transporter"
     get "/get_merchant" => "api#get_merchant"
   end

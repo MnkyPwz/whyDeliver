@@ -1,46 +1,29 @@
 
-<form action="#">
+  <p>{{ order | json}}</p>
+
+<form action="/api/order" accept-charset="UTF-8" method="post">
+
   
-  
+
+  <input type="text" name="customer_first_name" ng-model="order.customer_first_name">
+  <label for="customer_first_name" class="">First Name</label>
+
+  <input type="text" name="customer_last_name" ng-model="order.customer_last_name">
+  <label for="customer_last_name" class="">Last Name</label>
+
   <input type="text" name="address" ng-model="order.address">
   <label for="address" class="address">Address</label>
 
+  <input type="text" name="customer_email" ng-model="order.customer_email">
+  <label for="customer_email" class="">Email</label>
+
+  <input type="text" name="customer_phone" ng-model="order.customer_phone">
+  <label for="customer_phone" class="">Phone #</label>
+
+  <input type="text" name="product_name" ng-model="order.product_name">
+  <label for="product_name" class="">Product Name</label>
+
+  <button ng-click="update()">Create Order</button>
+
 </form>
-<article>
-  <p>
-    <pre>form = {{user | json}}</pre>
-    <pre>master = {{master | json}}</pre>
-  </p>
-</article>
 
-
-<pre>
-= form_for @order do |f|
-  - if @order.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      %ul
-        - @order.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :customer_first_name
-    = f.text_field :customer_first_name
-  .field
-    = f.label :customer_last_name
-    = f.text_field :customer_last_name
-  .field
-    = f.label :customer_email
-    = f.text_field :customer_email
-  .field
-    = f.label :customer_phone
-    = f.text_field :customer_phone
-  .field
-    = f.label :product_name
-    = f.text_field :product_name
-  .actions
-    = f.submit 'Save'
-</pre>

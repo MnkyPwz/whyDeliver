@@ -2,6 +2,8 @@ class ApiController < ApplicationController
 
   respond_to :json
 
+  protect_from_forgery :except => :create_order
+
   def index
     @person = { "town" => "john", "name" => "greg" }
     respond_with(@person)
@@ -15,7 +17,18 @@ class ApiController < ApplicationController
 
     #@delivery = { "transporter_name" => "Big Tony", "item" => "Box of Tees" }
     #respond_with @delivery
+  end
 
+  def create_order
+    @order = current_merchant.orders.build(params[:order])
+    
+    respond_to do |format|
+      if @order.save
+        format.json { render json: @order, status: :created, location: @order }
+      else
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def get_merchant
