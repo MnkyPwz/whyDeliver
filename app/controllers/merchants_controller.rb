@@ -48,7 +48,8 @@ class MerchantsController < ApplicationController
     Stripe.api_key = STRIPE_TEST_SECRET
     token = params[:stripeToken]
     
-    customer = Stripe::Customer.create(
+    
+    unless @merchant.stripe_customer_id.present? customer = Stripe::Customer.create(
       :card => token,
       :email => @merchant.email
     )

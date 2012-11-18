@@ -12,8 +12,9 @@
                                  :address => "108 N State St, Chicago, IL 60602",
                                  :lat => 41.911461,
                                  :long => -87.67759,
+                                 :stripe_customer_id => "cus_0l8lcLVFAroGz6",
                                  :email => "rudyonrails@gmail.com",
-                                 :password => "swchicago",
+                                 :password => "testing",
                                  :password_confirmation => "swchicago")
 
  psychobaby = Merchant.create(:name => "Psychobaby",
@@ -21,12 +22,14 @@
                                  :address => "1630 N Damen Ave, Chicago, IL 60647",
                                  :lat => 41.833733,
                                  :long => -87.731964,
-                                 :email => "rudyonrails@gmail.com",
-                                 :password => "swchicago",
+                                 :stripe_customer_id => "cus_0l8mgIHPSSxvfr",
+                                 :email => "contrerasnet@gmail.com",
+                                 :password => "testing",
                                  :password_confirmation => "swchicago")
 
 
  Order.delete_all
+ p beard_papa
  order1 = beard_papa.orders.build(:address => "222 W. Merchandise Mart",
                                               :customer_first_name => "Jimmy",
                                               :customer_last_name => "Odom",
