@@ -4,7 +4,7 @@ WhyDeliver::Application.routes.draw do
   post "/sign_in" => "sessions#create", :as => 'sign_in'
   get "/sign_out" => "sessions#destroy", :as => "sign_out"
 
-  get "pages/dashboard", :as => "dashboard"
+  get "/pages/dashboard", :as => "dashboard"
 
   root :to => "pages#dashboard"
 
@@ -24,9 +24,9 @@ WhyDeliver::Application.routes.draw do
 
 
   scope "api" do
-    get "get_delivery" => "api#get_delivery"
-    get "get_transporter" => "api#get_transporter"
-    get "get_merchant" => "api#get_merchant"
+    get "/get_order" => "api#get_order"
+    get "/get_transporter" => "api#get_transporter"
+    get "/get_merchant" => "api#get_merchant"
   end
 
 end

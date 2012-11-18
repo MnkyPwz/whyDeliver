@@ -1,10 +1,20 @@
 
 <form action="#">
   
-  <label for="address" class="address"></label>
+  
+  <input type="text" name="address" ng-model="order.address">
+  <label for="address" class="address">Address</label>
 
 </form>
+<article>
+  <p>
+    <pre>form = {{user | json}}</pre>
+    <pre>master = {{master | json}}</pre>
+  </p>
+</article>
 
+
+<pre>
 = form_for @order do |f|
   - if @order.errors.any?
     #error_explanation
@@ -33,3 +43,4 @@
     = f.text_field :product_name
   .actions
     = f.submit 'Save'
+</pre>

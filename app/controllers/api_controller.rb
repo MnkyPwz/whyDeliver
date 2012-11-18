@@ -8,7 +8,7 @@ class ApiController < ApplicationController
   end
 
 
-  def get_delivery
+  def get_order
     @delivery = Order.first
     respond_with @delivery
 

@@ -31,6 +31,7 @@ controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', '
   $scope.cntlName = 'merchantCntl';
   $scope.params = $routeParams
   $scope.merchant = Merchant.get();
+  $scope.order = Order.get();
 
   $scope.createOrder = function() {
     $scope.order = 
