@@ -3,15 +3,31 @@
 /* Controllers */
 
 
+controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $routeParams, $location, Merchant, Order){
+
+  $scope.cntlName = 'merchantCntl';
+  $scope.params = $routeParams
+  $scope.merchant = Merchant.get();
+  $scope.order = Order.get();
+
+  $scope.createOrder = function() {
+    $scope.order = 
+    Order.save(
+      
+    );
+  };
+
+}]);
+
 controllers.controller('orderCntl', ['$scope', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $routeParams, $location, Order, Merchant){
 
   $scope.name = 'orderCntl';
   $scope.params = $routeParams
   $scope.order = Order.get();
 
-  $scope.getOrder = function() {
+  $scope.trackOrder = function() {
     $scope.order = Order.get({
-      search:$scope.params.tracking
+      id:$scope.params.id
       },
       function(data){ //success
         $scope.order = data
@@ -22,21 +38,6 @@ controllers.controller('orderCntl', ['$scope', '$routeParams', '$location', 'Ord
     );
 
 
-  };
-
-}]);
-
-controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $routeParams, $location, Merchant, Order){
-
-  $scope.cntlName = 'merchantCntl';
-  $scope.params = $routeParams
-  $scope.merchant = Merchant.get();
-
-  $scope.createOrder = function() {
-    $scope.order = 
-    Order.save(
-      
-    );
   };
 
 }]);
