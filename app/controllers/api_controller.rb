@@ -45,5 +45,10 @@ class ApiController < ApplicationController
 
   end
 
+  def get_orders
+    @orders = Order.where("merchant_id = ?", params[:id])
+    respond_with @orders
+  end
+
 
 end
