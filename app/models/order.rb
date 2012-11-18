@@ -2,17 +2,13 @@ class Order < ActiveRecord::Base
 
   require "open-uri"
 
-<<<<<<< HEAD
-  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status, :transporter_id, :delivery_distance, :created_at, :quantity
-=======
-  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status, :transporter_id, :delivery_distance, :tracking_number
->>>>>>> tracking_number
+  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status, :transporter_id, :delivery_distance, :created_at, :quantity, :tracking_number
 
   validates :address, :customer_first_name, :customer_last_name, :customer_email, :customer_phone, :product_name, :presence => :true
 
   belongs_to :merchant
 
-  before_create :geolocate_address, :set_tracking_number, #:calculate_shipping_distance, :charge_customer, :default_values
+  before_create :geolocate_address, :set_tracking_number #:calculate_shipping_distance, :charge_customer, :default_values
   
   after_update :add_driver, :order_acceptance_email, :calculate_driver_eta
   
