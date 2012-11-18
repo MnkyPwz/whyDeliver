@@ -3,9 +3,9 @@
 /* Controllers */
 
 
-controllers.controller('merchantCntl', ['$scope', '$cookies', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $cookies, $routeParams, $location, Merchant, Order){
+controllers.controller('myOrdersController', ['$scope', '$cookies', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $cookies, $routeParams, $location, Merchant, Order){
 
-  $scope.cntlName = 'merchantCntl';
+  $scope.cntlName = 'myOrdersController';
   $scope.params = $routeParams
   $scope.merchant = Merchant.get();
   $scope.orders = Order.get();
@@ -13,16 +13,15 @@ controllers.controller('merchantCntl', ['$scope', '$cookies', '$routeParams', '$
   // $scope.createOrder = function() {
   //   $scope.order = 
   //   Order.save(
-      
   //   );
   // };
 
 }]);
 
-controllers.controller('orderCntl', ['$scope', '$cookies', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $cookies, $routeParams, $location, Order, Merchant){
+controllers.controller('createOrderController', ['$scope', '$cookies', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $cookies, $routeParams, $location, Order, Merchant){
 
-  $scope.name = 'orderCntl';
-  $scope.params = $routeParams
+  $scope.name = 'createOrderController';
+  $scope.params = $routeParams;
   $scope.orders = Order.get();
 
   $scope.order = {};
@@ -30,8 +29,15 @@ controllers.controller('orderCntl', ['$scope', '$cookies', '$routeParams', '$loc
   $scope.update = function(e) {
     e.preventDefault();
     Order.save({order:$scope.order});
-    $location.path('/dashboard');
+    $location.path('/my_account');
   }
+}]);
+  
+controllers.controller('myAccountController', ['$scope', '$cookies', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $cookies, $routeParams, $location, Merchant, Order){
+  $scope.cntlName = 'myAccountController';
+  $scope.params = $routeParams;
+}]);
+
 
   // $scope.trackOrder = function() {
   //   $scope.order = Order.get({
@@ -46,7 +52,6 @@ controllers.controller('orderCntl', ['$scope', '$cookies', '$routeParams', '$loc
   //   );
   // }
 
-}]);
 
 // var TweetListCtrl = ['$scope', '$http', function($scope, $http){
 // 	$http.get('tweets.json').success(function(data) {

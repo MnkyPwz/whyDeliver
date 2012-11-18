@@ -9,10 +9,11 @@ var app = angular.module('whydeliver', ['ngResource','ngCookies', 'whydeliverSer
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-  		when('/dashboard', {redirectTo: '/dashboard'}).
-      when('/dashboard', {templateUrl: '/assets/templates/dashboard.html.erb',   controller: 'merchantCntl'}).
-      when('/delivery', {templateUrl: '/assets/templates/create_delivery.html.erb', controller: 'orderCntl'}).
-      when('/tracking/:id', {templateUrl: '/assets/templates/tracking.html.erb', controller: 'orderCntl'}).
+  		when('', {redirectTo: '/my_orders'}).
+      when('/my_orders', {templateUrl: '/assets/templates/my_orders.html.erb',   controller: 'myOrdersController'}).
+      when('/create_order', {templateUrl: '/assets/templates/create_order.html.erb', controller: 'createOrderController'}).
+      when('/my_account', {templateUrl: '/assets/templates/my_account.html.erb', controller: 'myAccountController'}).
+      when('/tracking/:id', {templateUrl: '/assets/templates/tracking.html.erb', controller: 'trackingController'}).
       otherwise({redirectTo: 'butter'});
 }]);
 
