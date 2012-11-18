@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @my_orders = current_merchant.orders
+    @order = Order.new
   end
   
   def fakeiphone
