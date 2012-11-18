@@ -16,5 +16,8 @@ class PagesController < ApplicationController
   def map
     @transporter = Transporter.last
   end
+
+  def ipsum
+  end
   
 end

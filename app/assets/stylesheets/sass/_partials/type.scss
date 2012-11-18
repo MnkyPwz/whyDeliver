@@ -30,7 +30,7 @@ h2 {
 
 h3 {
   color: $h3-color;
-  font-size: 26px;
+  font-size: 32px;
   line-height: 26px;
 }
 
@@ -54,6 +54,7 @@ a {
   &:hover, 
   &:focus {
     color: $link-hover;
+    @include transition(.5s ease-in-out);
   }
 }
 
@@ -64,11 +65,12 @@ ol {
 
 ul {
   li {
-    font-size: $regFontSize;
+    @extend p;
   }
 }
 
 ul, ol {
+  list-style: none;
   li {
     @extend p;
   }

@@ -13,10 +13,6 @@ class ApiController < ApplicationController
   def get_order
     @delivery = Order.first
     respond_with @delivery
-
-
-    #@delivery = { "transporter_name" => "Big Tony", "item" => "Box of Tees" }
-    #respond_with @delivery
   end
 
   def create_order

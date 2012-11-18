@@ -1,0 +1,22 @@
+footer {
+  background: $primaryColor;
+}
+
+.footer-nav {
+  float: right;
+  li {
+    font-size: 10px;
+    float: left;
+    padding: 0 10px;
+    border-right: 1px solid $white;
+    a {
+      color: $white;
+      &:hover {
+        color: lighten($secondaryColor, 10%);
+      }
+    }
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}

@@ -23,14 +23,15 @@ $regFontSize: 12px;
  ****************************************************************************** */
 
 
-
+$black: #000;
 $white: #fff;
 
 /* Brand Colors */
-$purple: #724095;
-$grey: #e7e7e8;
-$blue: #007bb6;
-$black: #000;
+
+$orange: #fa8859;
+$med-orange: #e37655;
+$seafoam: #a5dbd8;
+$light-brown: #f2f0e4;
 
 /* Greens */
 $light-green: #edf2f1;
@@ -40,11 +41,11 @@ $bright-green: #76d4b2;
 
 /* Greys */
 
-$light-grey: #E6E6E6;
-$shadow-grey: #999999;
-$photo-shadow: #8A8A8A;
-$med-grey: #808080;
-$dark-grey: #333132;
+$light-grey: #c5bfbf;
+$shadow-grey: #9f9e97;
+// $photo-shadow: #8A8A8A;
+$med-grey: #a09f98;
+$dark-grey: #636363;
 
 /* Indicator Colors */
 $red: #FF282E;
@@ -59,26 +60,22 @@ $green: #00bf50;
  *
  ****************************************************************************** */
 
-$primaryColor: $blue;
-$secondaryColor: $purple;
+$primaryColor: $seafoam;
+$secondaryColor: $orange;
 
 /* Border Colors */
 $button-border: $white;
 $light-border: $white;
-$thin-border: 3px solid;
-$med-border: 5px solid;
-$thick-border: 10px solid;
+
 
 /* Background Colors */
 
 $stat-bg: rgba(128, 128, 128, .25);
+$layer1bg: $white;
+$layer2bg: $light-brown;
 
 
 /* Button Colors */
-$simple-button: $med-green;
-$info-button: $light-grey;
-
-$dotColor: $light-grey;
 
 
 /* Event Colors */
@@ -93,23 +90,17 @@ $h3-color: $black;
 $h4-color: $black;
 $h5-color: $black;
 $text-color: $black;
-$link-color: $purple;
-$link-hover: lighten($link-color, 40%);
+$link-color: $secondaryColor;
+$link-hover: lighten($link-color, 20%);
 $link-hover-extra: transparentize($link-color, .5);
-$footer-text: $purple;
+$footer-text: $white;
 
 $supportMsgColor: $med-grey;
 
 $form-grey: $med-grey;
 $form-bg: whitesmoke;
 
-$giveBtnColor: $purple;
-$shadowColor: $grey;
-$goalColor: $blue;
-$supportColor: $purple;
-
-
-$selection: $purple;
+$selection: $primaryColor;
 $selection-bg: $black;
 
 
@@ -119,7 +110,9 @@ $selection-bg: $black;
  *
  ****************************************************************************** */
 
-
+$thin-border: 3px solid;
+$med-border: 5px solid;
+$thick-border: 10px solid;
 
 $statsSize: 200px;
 $statsBackground: rgba(231,231,232,.5);
