@@ -1,0 +1,113 @@
+.dashboard-aside {
+  @include background($white);
+  header {
+    h3 {
+      color: $white;
+      position: relative;
+      background: $secondaryColor;
+      line-height: 50px;
+    }
+  }
+
+    button {
+      display: block;
+      width: $button-size*1.2;
+      height: $button-size/3;
+      margin: 0 auto;
+      color: $white;
+    }
+
+  .good-done {
+    @include background($light-grey);
+    li {
+      margin: 5px 0;
+    }
+    .number {
+      background: transparent;
+      // margin: 10px;
+      // padding: 0 10px;
+      height: 100px;
+      h1 {
+        color: $primaryColor;
+        position: relative;
+        left: -15px;
+        display: block;
+        line-height: 60px;
+        text-align: center;
+        font-weight: 700;
+        width: 90px;
+        margin: 5px;
+        background: $white;
+      }
+    }
+    p {
+      background: transparent;
+      height: 100px;
+      padding-top: 5px;
+    }
+  }
+}
+
+.order-list {
+  table {
+    thead {
+      @include background(linear-gradient(lighten($primaryColor, 5%), darken($primaryColor, 5%)));
+      display: block;
+      line-height: $table-row-size;
+      height: $table-row-size;
+      @include box-shadow(0px 1px 2px);
+      tr {
+        line-height: $table-row-size;
+        height: $table-row-size;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      th {
+        margin: 4px 0;
+        border-right: 2px solid transparentize(lighten($primaryColor, 10%), .2);
+        &:last-child {
+          border-right: none;
+        }
+      }
+      .status {
+        padding: 0 30px;
+        &.delivered {
+          @include background(darken($primaryColor, 10%));
+        }
+        &.on-route {
+          @include background(lighten($primaryColor, 10%));
+        }
+        &.awaiting-pickup {
+          @include background(lighten($secondaryColor, 10%));
+        }
+        &.awaiting-acceptance {
+          @include background($light-grey);
+        }
+      }
+      .date {
+        padding: 0 18px;
+      }
+      .product {
+        padding: 0 51px;
+      }
+      .name {
+        padding: 0 56px;
+      }
+      .order_id {
+        padding: 0 23px;
+      }
+    }
+  }
+}
+
+.create-order-page {
+  form {
+    background: $white;
+  }
+  .create-order-btn {
+    display: block;
+    width: $button-size;
+    height: $button-size/4;
+    margin: 30px auto;
+  }
+}

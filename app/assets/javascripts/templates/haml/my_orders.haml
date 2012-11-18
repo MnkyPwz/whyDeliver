@@ -1,0 +1,41 @@
+.wrapper
+  %aside.col-1-3.dashboard-aside
+    %header 
+      %h3 Deliver Good
+    %ul.group.good-done
+      %li.group
+        .col-1-3.number 
+          %h1 40
+        %p.col-2-3.good-text pounds CO2 saved through local order filled
+      %li.group
+        .col-1-3.number 
+          %h1 30
+        %p.col-2-3.good-text grocery runs you've helped subsidize for underserved
+      %li.group
+        .col-1-3.number 
+          %h1 100
+        %p.col-2-3.good-text jobs have been created in your area since your joined
+
+    %button Grab Code
+    / %img
+    %p some text
+
+  %section.col-2-3.order-list
+    %nav
+      %input{:type => 'search'}
+      %button Search
+    %table
+      %thead
+        %tr
+          %th.status STATUS
+          %th.date DATE
+          %th.product PRODUCT
+          %th.name NAME
+          %th.order_id ORDER #
+      %tbody
+        %tr{ 'ng-repeat' => 'order in orders'}
+          %td.status {{order.status}}
+          %td.date {{order.create_at}}
+          %td.product {{order.product_name}}
+          %td.name {{order.customer_first_name}} {{order.customer_last_name}}
+          %td.order_id {{order.id}}

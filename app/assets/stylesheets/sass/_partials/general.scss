@@ -31,6 +31,40 @@ body, select, input, textarea {
 ----------------------------------------------------------------------*/
 
 .wrapper {
-  max-width: 960px;
+  max-width: $maxSiteWidth;
   margin: 0 auto;
+}
+
+.square {
+  height: $square-size;
+  width: $square-size;
+  margin-right: 0;
+  @include background($square-color);
+  figure {
+    display: block;
+    margin: 35px auto;
+    height: $circle-size;
+    width: $circle-size;
+    background: $primaryColor;
+    @include border-radius(50%);
+    i, h4 {
+      text-align: center;
+      color: $white;
+    }
+    i {
+      display: block;
+      width: 100%;
+      line-height: 140px;
+    }
+  }
+  &.middle {
+    @include background($dark-brown);
+    figure {
+      @include background($dark-grey);
+    }
+  }
+}
+
+.angular-view {
+  background: $light-brown;
 }

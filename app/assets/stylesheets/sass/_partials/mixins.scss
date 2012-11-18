@@ -49,14 +49,20 @@
  *
  ****************************************************************************** */
 
-@mixin button($color: #818181, $border-radius: $default-border-radius) {
-  @include single-transition;
+@mixin button($color: $secondaryColor, $border-radius: $default-border-radius) {
+  @include single-transition(all, 0s, linear);
   @include border-radius($border-radius);
-  @include box-shadow(0 1px 2px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.25));
+  @include box-shadow(0 1px 2px rgba(darken($color, 30%),0.5), inset 0 1px 0 rgba(lighten($color, 30%),.25));
   // @include background(transparentize($color, .5));
-  background-color: transparentize($color, .2);
+  background-color: $color;
   background-repeat: repeat-x;
-  border: 8px solid transparentize(white, .6);
+  border: none;
+  
+  border-top: 1px solid lighten($color, 5%);
+  // border-right: 3px solid darken($color, 30%);
+  border-bottom: 5px solid darken($color, 5%);
+  // border-left: 1px solid lighten($color, 10%);
+  
   color: contrast-color($color, #000, #fff, 50%);
   font-weight: bold;
   // text-shadow: 0 1px 1px contrast-color($color, rgba(255,255,255,0.5), rgba(0,0,0,0.5), 50%);
@@ -68,8 +74,9 @@
   }
   &:active {
     @include box-shadow(inset 0 8px 12px rgba(0,0,0,0.20));
-    // @include single-transition(all, 0s, linear);
-    border: 8px solid transparentize(white, .6);
+    @include single-transition(all, 0s, linear);
+    border: none;
+    // border: 1px solid $white;
   }
 }
 
