@@ -1,0 +1,42 @@
+
+.top-header {
+  background: $primaryColor;
+  height: 60px;
+  .logo {
+    float: left;
+    text-indent: -9999px;
+    height: 38px;
+    width: 168px;
+    @include background(url('/assets/wd-logo.png'));
+  }
+}
+.main-nav {
+  position: relative;
+  float: right;
+  height: 60px;
+  width: $main-nav-size;
+  text-align: center;
+  background: $main-nav;
+  z-index: 5;
+  @include box-shadow(darken($shadow-grey, 10%) 0px 2px 5px, darken($shadow-grey, 10%) 0px 15px 5px, darken($shadow-grey, 10%) 0px 20px 5px);
+  &:before {
+      content:"";
+      position: absolute;
+      top: 80%;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-top: $main-nav-size solid $main-nav;
+      border-right: $main-nav-size solid transparent;
+    }
+    &:after {
+      content:"";
+      position: absolute;
+      top: 80%;
+      right: 0px;
+      width: 0;
+      height: 0;
+      border-top: $main-nav-size solid $main-nav;
+      border-left: $main-nav-size solid transparent;
+    }
+}
