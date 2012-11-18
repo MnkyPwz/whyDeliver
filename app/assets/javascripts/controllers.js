@@ -8,8 +8,7 @@ controllers.controller('myOrdersController', ['$scope', '$cookies', '$routeParam
   $scope.cntlName = 'myOrdersController';
   $scope.params = $routeParams
   $scope.merchant = Merchant.get();
-  $scope.order = Order.get();
-  $scope.orders = Orders.get({ merch_id : 1});
+  $scope.orders = Orders.get({ merch_id : 12});
 
 }]);
 
