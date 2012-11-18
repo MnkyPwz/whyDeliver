@@ -21,7 +21,7 @@
                                  :address => "1630 N Damen Ave, Chicago, IL 60647",
                                  :lat => 41.833733,
                                  :long => -87.731964,
-                                 :email => "rudyonrails@gmail.com",
+                                 :email => "greg@vgdub.com",
                                  :password => "swchicago",
                                  :password_confirmation => "swchicago")
 

@@ -1,25 +1,33 @@
 <div class='wrapper'>
-  <aside class='col-1-3'>
-    <header></header>
-    <ul>
-      <li>
-        <div class='number'>40</div>
-        <p>some test</p>
+  <aside class='col-1-3 dashboard-aside'>
+    <header>
+      <h3>Deliver Good</h3>
+    </header>
+    <ul class='group good-done'>
+      <li class='group'>
+        <div class='col-1-3 number'>
+          <h1>40</h1>
+        </div>
+        <p class='col-2-3 good-text'>pounds CO2 saved through local order filled</p>
       </li>
-      <li>
-        <div class='number'>40</div>
-        <p>some test</p>
+      <li class='group'>
+        <div class='col-1-3 number'>
+          <h1>30</h1>
+        </div>
+        <p class='col-2-3 good-text'>grocery runs you've helped subsidize for underserved</p>
       </li>
-      <li>
-        <div class='number'>40</div>
-        <p>some test</p>
+      <li class='group'>
+        <div class='col-1-3 number'>
+          <h1>100</h1>
+        </div>
+        <p class='col-2-3 good-text'>jobs have been created in your area since your joined</p>
       </li>
     </ul>
-    <button></button>
-    <img>
+    <button>Grab Code</button>
+    <!-- %img -->
     <p>some text</p>
   </aside>
-  <section class='col-2-3'>
+  <section class='col-2-3 order-list'>
     <nav>
       <input type='search'>
       <button>Search</button>
@@ -27,20 +35,20 @@
     <table>
       <thead>
         <tr>
-          <th>STATUS</th>
-          <th>DATE</th>
-          <th>ORDER</th>
-          <th>NAME</th>
-          <th>ORDER #</th>
+          <th class='status'>STATUS</th>
+          <th class='date'>DATE</th>
+          <th class='product'>PRODUCT</th>
+          <th class='name'>NAME</th>
+          <th class='order_id'>ORDER #</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat='order in orders'>
-          <td>{{order.status}}</td>
-          <td>{{order.create_at}}</td>
-          <td>{{order.product_name}}</td>
-          <td>{{order.customer_first_name}} {{order.customer_last_name}}</td>
-          <td>{{order.id}}</td>
+          <td class='status'>{{order.status}}</td>
+          <td class='date'>{{order.create_at}}</td>
+          <td class='product'>{{order.product_name}}</td>
+          <td class='name'>{{order.customer_first_name}} {{order.customer_last_name}}</td>
+          <td class='order_id'>{{order.id}}</td>
         </tr>
       </tbody>
     </table>

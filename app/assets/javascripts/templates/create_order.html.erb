@@ -1,20 +1,30 @@
-<div class='wrapper'>
-  <p>{{order | json}}</p>
-  <form accept-charset='UTF-8' action='/api/order' method='post'>
-    <input name='customer_first_name' ng-model='order.customer_first_name' type='text'>
-    <label for='customer_first_name'>First Name</label>
-    <input name='customer_last_name' ng-model='order.customer_last_name' type='text'>
-    <label for='customer_last_name'>First Name</label>
-    <input name='customer_first_name' ng-model='order.customer_first_name' type='text'>
-    <label for='customer_first_name'>First Name</label>
-    <input name='address' ng-model='order.address' type='text'>
-    <label for='address'>First Name</label>
-    <input name='customer_email' ng-model='order.customer_email' type='text'>
-    <label for='customer_email'>First Name</label>
-    <input name='customer_phone' ng-model='order.customer_phone' type='text'>
-    <label for='customer_phone'>First Name</label>
-    <input name='product_name' ng-model='order.product_name' type='text'>
-    <label for='product_name'>First Name</label>
-    <button ng-click='update($event)'>Create Order</button>
+<div class='wrapper create-order-page'>
+  <!-- %p {{order | json}} -->
+  <form accept-charset='UTF-8' action='/api/order' class='grid pad group' method='post'>
+    <div class='col-1-2 group'>
+      <input name='customer_first_name' ng-model='order.customer_first_name' type='text'>
+      <label for='customer_first_name'>First Name</label>
+    </div>
+    <div class='col-1-2 group'>
+      <input name='customer_last_name' ng-model='order.customer_last_name' type='text'>
+      <label for='customer_last_name'>Last Name</label>
+    </div>
+    <div class='col-1 group'>
+      <input name='address' ng-model='order.address' type='text'>
+      <label for='address'>Address</label>
+    </div>
+    <div class='col-1-2 group'>
+      <input name='customer_email' ng-model='order.customer_email' type='text'>
+      <label for='customer_email'>Customer Email</label>
+    </div>
+    <div class='col-1-2 group'>
+      <input name='customer_phone' ng-model='order.customer_phone' type='text'>
+      <label for='customer_phone'>Customer Phone #</label>
+    </div>
+    <div class='col-1 group'>
+      <input name='product_name' ng-model='order.product_name' type='text'>
+      <label for='product_name'>Product Name</label>
+    </div>
+    <button class='create-order-btn' ng-click='update($event)'>Create Order</button>
   </form>
 </div>

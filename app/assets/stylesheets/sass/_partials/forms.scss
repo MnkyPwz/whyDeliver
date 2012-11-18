@@ -15,7 +15,7 @@ input {
   line-height: 26px;
   text-align: center;
   color: $form-grey;
-  border-bottom: 2px dotted lighten($form-grey, 30%);
+  border-bottom: 2px dotted darken($form-grey, 10%);
   box-shadow: none;
   width: 100%;
   padding: 10px 0;
@@ -23,11 +23,12 @@ input {
   @include float;
   @extend %box-emboss;
   &:active, &:focus {
-    color: lighten($form-grey, 20%);
+    color: darken($form-grey, 20%);
     outline-color: $secondaryColor;
     outline-width: 3px;
     outline-style: none;
-    border-bottom: 2px dotted lighten($secondaryColor, 20%);
+    // @include background(lighten($secondaryColor, 20%));
+    border-bottom: 2px dotted darken($secondaryColor, 30%);
   }
   &[type='text'] {
     
