@@ -41,13 +41,15 @@
                                               :customer_last_name => "Briggs",
                                               :customer_email => "shahshaan@gmail.com",
                                               :customer_phone => "312-999-9999",
-                                              :product_name => "Custom t-shirts")
+                                              :order_status => "delivered",
+                                              :product_name => "Board Books")
  
  order3 = psychobaby.orders.build(:address => "222 W. Merchandise Mart",
                                               :customer_first_name => "Greg",
                                               :customer_last_name => "Williams",
                                               :customer_email => "shahshaan@gmail.com",
                                               :customer_phone => "312-999-9999",
+                                              :order_status => "delivered",
                                               :product_name => "Dozen Roses")
 
  order4 = psychobaby.orders.build(:address => "222 W. Merchandise Mart",
@@ -55,6 +57,7 @@
                                               :customer_last_name => "Williams",
                                               :customer_email => "shahshaan@gmail.com",
                                               :customer_phone => "312-999-9999",
+                                              :order_status => "delivered",
                                               :product_name => "Dozen Roses")
  
  order5 = psychobaby.orders.build(:address => "222 W. Merchandise Mart",
@@ -62,6 +65,7 @@
                                               :customer_last_name => "Williams",
                                               :customer_email => "shahshaan@gmail.com",
                                               :customer_phone => "312-999-9999",
+                                              :order_status => "delivered",
                                               :product_name => "Dozen Roses")
 
  order6 = psychobaby.orders.build(:address => "222 W. Merchandise Mart",
@@ -69,6 +73,7 @@
                                               :customer_last_name => "Williams",
                                               :customer_email => "shahshaan@gmail.com",
                                               :customer_phone => "312-999-9999",
+                                              :order_status => "delivered",
                                               :product_name => "Dozen Roses")
  
  order1.save  
