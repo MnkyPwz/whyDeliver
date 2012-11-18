@@ -22,3 +22,4 @@ services.factory('Order',['$resource', function($resource){
 	  'delete': {method:'DELETE'}
   });
 }]);
+
