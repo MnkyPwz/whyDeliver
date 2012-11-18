@@ -9,11 +9,11 @@ class Order < ActiveRecord::Base
 
   belongs_to :merchant
 
-  before_create :geolocate_address, :calculate_shipping_distance
+  before_create :geolocate_address, :calculate_shipping_distance, :charge_customer
   
-  after_update :add_driver, :charge_customer, :order_acceptance_email, :calculate_driver_eta
+  after_update :add_driver, :order_acceptance_email, :calculate_driver_eta
   
-  private
+  #private
   def geolocate_address
     url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{self.address.gsub(/\s/, '+')}&sensor=true"
     response = JSON.parse(open(url).read)
@@ -31,16 +31,23 @@ class Order < ActiveRecord::Base
     url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
     response = JSON.parse(open(url).read)
     self.delivery_distance = response["rows"][0]["elements"][0]["distance"]["text"].split(/\s/)[0]
-    self.charge = (self.delivery_distance * 100)
+    
+    self.charge = calculate_charge(self.delivery_distance)
+  end
+  
+  def calculate_charge(distance)   
+    if distance >= 3
+      return ( ( ( (distance - 3) * 1.60 ) + 12 ) * 100 )  
+    else 
+      return 1200
+    end
   end
   
   def charge_customer
-    if self.order_status_changed? && self.order_status == "accepted"
-      charge = Stripe::Charge.create(
-        :amount =>  self.charge,
-        :currency => "usd",
-        :customer => self.merchant.stripe_customer_id )
-    end
+    charge = Stripe::Charge.create(
+      :amount =>  self.charge,
+      :currency => "usd",
+      :customer => self.merchant.stripe_customer_id )
   end
 
   def order_acceptance_email

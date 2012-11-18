@@ -10,6 +10,8 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
     <script type="text/javascript">
       function initialize() {
+        moves = [{"lat":41.8833121,"long":-87.6281568},{"lat":41.88451024123208,"long":-87.62787785026245},{"lat":41.88580420852682,"long":-87.62796368095093},{"lat":41.88690645629254,"long":-87.62794222327881},{"lat":41.88690645629254,"long":-87.63092483970337},{"lat":41.88690645629254,"long":-87.63255562278442},{"lat":41.88880738964271,"long":-87.63259853812866},{"lat":41.88922271208904,"long":-87.63401474448852},{"lat":41.88922271208904,"long":-87.63401474448852}]
+        
         var myLatLng = new google.maps.LatLng(<%= @transporter.current_lat %>, <%= @transporter.current_long %>);
         
         var mapOptions = {
@@ -24,6 +26,23 @@
         bike_west = "<%= asset_path('bike_west.png') %>";
         
         orientation = "north";
+        
+        var route = _.map(moves, function(num) {
+          return new google.maps.LatLng(num["lat"], num["long"]);
+        })
+        
+        var polyline = new google.maps.Polyline({
+          path:route,
+          strokeColor:"#0000FF",
+          strokeOpacity:0.8,
+          strokeWeight:3.5
+        });
+        
+        polyline.setMap(map);        
+        
+        // var OverPoly = myResult.routes[curRoute].overview_polyline.points;
+        // var DePoly = google.maps.geometry.encoding.decodePath(OverPoly);
+        // var polyline = new google.maps.Polyline({map:map, path:DePoly});
             
         marker = new google.maps.Marker({
           position: myLatLng,
@@ -35,7 +54,6 @@
     </script>
     
     <script type="text/javascript">    
-      moves = [{"lat":41.8833121,"long":-87.6281568},{"lat":41.88451024123208,"long":-87.62787785026245},{"lat":41.88580420852682,"long":-87.62796368095093},{"lat":41.88690645629254,"long":-87.62794222327881},{"lat":41.88690645629254,"long":-87.63092483970337},{"lat":41.88690645629254,"long":-87.63255562278442},{"lat":41.88880738964271,"long":-87.63259853812866},{"lat":41.88922271208904,"long":-87.63401474448852},{"lat":41.88922271208904,"long":-87.63401474448852}]
       var i = 0;
     
       window.setInterval(moveMap, 1500);
