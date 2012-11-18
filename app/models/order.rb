@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
   
   after_update :add_driver, :charge_customer, :order_acceptance_email, :calculate_driver_eta
   
-  private
+  #private
   def geolocate_address
     url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{self.address.gsub(/\s/, '+')}&sensor=true"
     response = JSON.parse(open(url).read)
@@ -31,7 +31,16 @@ class Order < ActiveRecord::Base
     url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
     response = JSON.parse(open(url).read)
     self.delivery_distance = response["rows"][0]["elements"][0]["distance"]["text"].split(/\s/)[0]
-    self.charge = (self.delivery_distance * 100)
+    
+    self.charge = calculate_charge(self.distance)
+  end
+  
+  def calculate_charge(distance)   
+    if distance >= 3
+      return ( ( ( (distance - 3) * 1.60 ) + 12 ) * 100 )  
+    else 
+      return 1200
+    end
   end
   
   def charge_customer
