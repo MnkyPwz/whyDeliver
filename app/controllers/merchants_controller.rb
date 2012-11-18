@@ -53,6 +53,7 @@ class MerchantsController < ApplicationController
       :card => token,
       :email => @merchant.email
     )
+    end
     
     @merchant.update_attributes(:stripe_customer_id => customer["id"])
      
@@ -99,4 +100,5 @@ class MerchantsController < ApplicationController
   def require_merchant
     @merchant = Merchant.find(session[:merchant_id])
   end
+  
 end
