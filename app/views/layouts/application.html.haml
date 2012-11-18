@@ -48,7 +48,7 @@
     b.setAttribute('data-platform', navigator.platform );
   
   -# Remember to Customize this build
-  =javascript_include_tag 'js/modernizr.js'
+  =#javascript_include_tag 'js/modernizr.js'
 
   / -# Favicons
   / %link{:rel => 'apple-touch-icon-precomposed', :sizes => '114x114', :href => '/_/i/fav/apple-touch-icon-114.png'}
@@ -72,16 +72,16 @@
 
   =javascript_include_tag 'application'
 
-  =javascript_include_tag '/assets/js/plugins.js'
-  =javascript_include_tag '/assets/js/functions.js'
-  =javascript_include_tag '/assets/js/ios-orientationchange-fix.js'
+  =#javascript_include_tag '/assets/js/plugins.js'
+  =#javascript_include_tag '/assets/js/functions.js'
+  =#javascript_include_tag '/assets/js/ios-orientationchange-fix.js'
   
   /[if (lt IE 9) & (!IEMobile)]
-    =javascript_include_tag '/assets/js/selectivizr.js'
-    =javascript_include_tag '/assets/js/respond.js'
+    =#javascript_include_tag '/assets/js/selectivizr.js'
+    =#javascript_include_tag '/assets/js/respond.js'
   
   /[if (lt IE 8) & (!IEMobile)]
-    =javascript_include_tag '/assets/js/imgsizer.js'
+    =#javascript_include_tag '/assets/js/imgsizer.js'
 
     %script
       addLoadEvent(function() {
