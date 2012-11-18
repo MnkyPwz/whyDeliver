@@ -28,3 +28,9 @@
 %button {
   @include button;
 }
+
+%group {
+  &:before, &:after { content:""; display:table; visibility:hidden; }
+  &:after { clear:both; }
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}

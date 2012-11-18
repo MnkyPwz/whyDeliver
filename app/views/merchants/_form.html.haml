@@ -1,39 +1,44 @@
-= form_for @merchant do |f|
-  - if @merchant.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
-      %ul
-        - @merchant.errors.full_messages.each do |msg|
-          %li= msg
+.wrapper
+  = form_for @merchant, :class => "grid pad group create-merchant-form" do |f|
+    - if @merchant.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
+        %ul
+          - @merchant.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :phone
-    = f.number_field :phone
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :password
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .field
-    %label Card Number
-    %input.card-number{:autocomplete => "off", :size => "20", :type => "text"}/
-  .field
-    %label CVC
-    %input.card-cvc{:autocomplete => "off", :size => "4", :type => "text"}/
-  .field
-    %label Expiration (MM/YYYY)
-    %input.card-expiry-month{:size => "2", :type => "text"}/
-    %span /
-    %input.card-expiry-year{:size => "4", :type => "text"}/  
-  .actions
-    = f.submit 'Save', :class => 'submit-button'
+    .col-1
+      = f.text_field :name
+      = f.label :name
+    .col-1-2
+      = f.text_field :email
+      = f.label :email
+    .col-1-2
+      = f.number_field :phone
+      = f.label :phone
+    .col-1
+      = f.text_field :address
+      = f.label :address
+    .col-1-2
+      = f.password_field :password
+      = f.label :password
+    .col-1-2
+      = f.password_field :password_confirmation
+      = f.label :password_confirmation
+    .col-1
+      %input.card-number{:autocomplete => "off", :size => "20", :type => "text"}
+      %label Card Number
+    .col-1-2
+      
+      %input.card-cvc{:autocomplete => "off", :size => "4", :type => "text"}
+      %label CVC
+    .col-1-2
+      .col-1-2
+        %input.card-expiry-month{:size => "2", :type => "text"}/
+        %label Expiration (MM)
+      .col-1-2
+        %input.card-expiry-year{:size => "4", :type => "text"}/
+        %label Expiration (YYYY)
+        
+    .actions
+      = f.submit 'Create Account', :class => 'submit-button create-merchant-btn'

@@ -1,9 +1,12 @@
-=form_tag '/sign_in' do
-  =label_tag :email
-  =text_field_tag :email
-  
-  =label_tag :password
-  =password_field_tag :password
-  
-  =submit_tag
+.wrapper
+  =form_tag '/sign_in' do
+    
+    .col-1-2
+      =text_field_tag :email
+      =label_tag :email
+    .col-1-2
+      =password_field_tag :password
+      =label_tag :password
+    
+    =submit_tag 'Login', :class => 'login-btn'
   
