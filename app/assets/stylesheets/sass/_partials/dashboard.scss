@@ -63,6 +63,7 @@
     text-align: center;
   }
   table {
+    width: 100%;
     th, td {
       vertical-align: middle;
       min-height: $table-row-size;
@@ -134,17 +135,20 @@
         padding: 0 10px;
         width: 110px;
         line-height: 100px;
+        vertical-align: bottom;
+        color: $white;
+        padding-top: 30px;
         &.delivered {
-          @include background(darken($primaryColor, 10%));
+          @include background(url('/assets/house.png') 28px 4px no-repeat,darken($primaryColor, 10%));
         }
         &.on-route {
-          @include background(lighten($primaryColor, 10%));
+          @include background(url('/assets/briefcase.png') 28px 4px no-repeat,lighten($primaryColor, 10%));
         }
         &.awaiting-pickup {
-          @include background(lighten($secondaryColor, 10%));
+          @include background(url('/assets/clock.png') 28px 4px no-repeat,lighten($secondaryColor, 10%));
         }
         &.pending {
-          @include background($light-grey);
+          @include background(url('/assets/clock.png') 28px 4px no-repeat,$light-grey);
         }
       }
       .date {

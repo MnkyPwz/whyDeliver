@@ -9,7 +9,7 @@ controllers.controller('myOrdersController', ['$scope', '$cookies', '$routeParam
   $scope.params = $routeParams
   $scope.merchant = Merchant.get();
   //$scope.orders = Order.get({ merch_id: $scope.merchant.id });
-  $scope.orders = Orders.get({ merch_id : 12});
+  $scope.orders = Orders.get({ merch_id : 2});
 
 
 }]);

@@ -70,7 +70,7 @@ input {
 button {
   @extend %button;
   @include font($museo, 700);
-  @include text-shadow(darken($secondaryColor, 10%));
+  @include text-shadow(darken($secondaryColor, 10%) 3px 3px);
 }
 
 label {
