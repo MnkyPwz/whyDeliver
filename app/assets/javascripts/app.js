@@ -9,7 +9,7 @@ var app = angular.module('whydeliver', ['ngResource','ngCookies', 'whydeliverSer
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-  		when('/dashboard', {redirectTo: '/dashboard'}).
+  		when('/dashboard/', {redirectTo: '/dashboard'}).
       when('/dashboard', {templateUrl: '/assets/templates/dashboard.html.erb',   controller: 'merchantCntl'}).
       when('/delivery', {templateUrl: '/assets/templates/create_delivery.html.erb', controller: 'orderCntl'}).
       when('/tracking/:id', {templateUrl: '/assets/templates/tracking.html.erb', controller: 'orderCntl'}).

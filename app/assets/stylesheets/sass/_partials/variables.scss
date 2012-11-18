@@ -42,7 +42,7 @@ $bright-green: #76d4b2;
 /* Greys */
 
 $light-grey: #c5bfbf;
-// $shadow-grey: #999999;
+$shadow-grey: #9f9e97;
 // $photo-shadow: #8A8A8A;
 $med-grey: #a09f98;
 $dark-grey: #636363;
@@ -71,13 +71,11 @@ $light-border: $white;
 /* Background Colors */
 
 $stat-bg: rgba(128, 128, 128, .25);
+$layer1bg: $white;
+$layer2bg: $light-brown;
 
 
 /* Button Colors */
-$simple-button: $med-green;
-$info-button: $light-grey;
-
-$dotColor: $light-grey;
 
 
 /* Event Colors */
