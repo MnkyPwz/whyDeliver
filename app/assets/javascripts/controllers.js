@@ -27,8 +27,10 @@ controllers.controller('orderCntl', ['$scope', '$cookies', '$routeParams', '$loc
 
   $scope.order = {};
 
-  $scope.update = function() {
+  $scope.update = function(e) {
+    e.preventDefault();
     Order.save({order:$scope.order});
+    $location.path('/dashboard');
   }
 
   // $scope.trackOrder = function() {
