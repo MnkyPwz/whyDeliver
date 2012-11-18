@@ -2,14 +2,14 @@ class Order < ActiveRecord::Base
 
   require "open-uri"
 
-  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status, :transporter_id, :delivery_distance
+  attr_accessible :address, :charge, :customer_email, :customer_first_name, :customer_last_name, :customer_phone, :destination_lat, :destination_long, :merchant_id, :product_name, :order_status, :transporter_id, :delivery_distance, :tracking_number
 
   validates :address, :customer_first_name, :customer_last_name, :customer_email, :customer_phone, :product_name, :presence => :true
 
 
   belongs_to :merchant
 
-  before_create :geolocate_address, :calculate_shipping_distance, :charge_customer
+  before_create :geolocate_address, :calculate_shipping_distance, :charge_customer, :default_values, :set_tracking_number
   
   after_update :add_driver, :order_acceptance_email, :calculate_driver_eta
   
@@ -21,7 +21,7 @@ class Order < ActiveRecord::Base
     self.destination_long = response["results"][0]["geometry"]["location"]["lng"]
   end
 
-  before_create :default_values
+  
 
   def default_values
     self.order_status = "pending"
@@ -56,16 +56,20 @@ class Order < ActiveRecord::Base
     end
   end
   
-  def add_driver
-    
-  end
-  
   def calculate_driver_eta
     if self.order_status_changed? && self.order_status == "accepted"
       first_distance = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.transporter.current_lat},#{self.transporter.current_long}&destinations=#{self.lat},#{self.long}&sensor=true&mode=driving&units=imperial"
       second_distance = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
       self.delivery_distance = "" 
     end
+  end
+
+  def set_tracking_number
+    tracking_number = SecureRandom.hex(n=5).upcase
+    until Order.find_by_tracking_number(tracking_number) == nil
+      tracking_number = SecureRandom.hex(n=5).upcase
+    end
+    self.tracking_number = tracking_number    
   end
 
 end
