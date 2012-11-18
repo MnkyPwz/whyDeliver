@@ -23,6 +23,7 @@ WhyDeliver::Application.routes.draw do
 
   get "/fakeiphone" => "pages#fakeiphone", :as => 'fakeiphone'
   get "/ipsum" => "pages#ipsum"
+  get "/form" => "pages#form"
 
 
   # The priority is based upon order of creation:

@@ -52,7 +52,7 @@
         <tr class='group' ng-repeat='order in orders'>
           <td class='status {{order.order_status}}'>{{order.order_status}}</td>
           <td class='date'>{{order.created_at}}</td>
-          <td class='product'>{{order.product_name}}</td>
+          <td class='product'><a href="#/tracking/{{ order.id }}">{{order.product_name}}</a></td>
           <td class='name'>{{order.customer_first_name}} {{order.customer_last_name}}</td>
           <td class='order_id'>
             <a href='/tracking/{{order_id}}'>{{order.id}}</a>

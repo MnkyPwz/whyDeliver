@@ -19,5 +19,8 @@ class PagesController < ApplicationController
 
   def ipsum
   end
+
+  def form
+  end
   
 end
