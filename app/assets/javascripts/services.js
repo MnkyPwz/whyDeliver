@@ -23,3 +23,8 @@ services.factory('Order',['$resource', function($resource){
   });
 }]);
 
+services.factory('Orders', ['$resource', function($resource, merch_id){
+  return $resource('/api/orders/:merch_id', {}, {
+      'get':    {method:'GET'}
+  });
+}]);
