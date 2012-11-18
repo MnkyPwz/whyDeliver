@@ -57,6 +57,11 @@ body, select, input, textarea {
       margin-top: 45px;
       line-height: 140px;
     }
+    .delivery {
+      margin-bottom: 7px;
+      margin-top: 30px;
+      margin-left: 55px;
+    }
   }
   &.middle {
     @include background($dark-brown);
@@ -75,6 +80,11 @@ body, select, input, textarea {
 .add, .order, .account, .delivery, .merchant {
   height: 65px;
   width: 65px;
+}
+
+.delivery {
+  width: 100px;
+  height: 100px;
 }
 
 .guarantee {
