@@ -93,12 +93,14 @@ body, select, input, textarea {
 #cycle {
   position: relative;
   display: inline-block;
-  width: 250px;
+  width: 300px;
+  @include background($secondaryColor);
+  top: 14px;
   // float: left;
   div {
     @include background($secondaryColor);
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
   }
 }
