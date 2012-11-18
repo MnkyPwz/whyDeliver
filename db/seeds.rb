@@ -28,8 +28,6 @@
                                  :password_confirmation => "testing")
 
 
-
-
  Order.delete_all
  p beard_papa
 
