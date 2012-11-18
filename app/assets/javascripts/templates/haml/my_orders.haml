@@ -18,7 +18,7 @@
 
     %button Grab Code
     / %img
-    %p {{orders.status}}
+    / %p {{orders.first}}
 
   %section.col-2-3.order-list
     %nav
@@ -36,8 +36,8 @@
           %th.order_id ORDER #
       %tbody
         %tr{ 'ng-repeat' => 'order in orders'}
-          %td.status {{order.status}}
-          %td.date {{order.create_at}}
+          %td.status {{order.order_status}}
+          %td.date {{order.created_at}}
           %td.product {{order.product_name}}
           %td.name {{order.customer_first_name}} {{order.customer_last_name}}
           %td.order_id {{order.id}}
