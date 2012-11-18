@@ -31,6 +31,19 @@ body, select, input, textarea {
 ----------------------------------------------------------------------*/
 
 .wrapper {
-  max-width: 960px;
+  max-width: $maxSiteWidth;
   margin: 0 auto;
+}
+
+.square {
+  height: $square-size;
+  width: $square-size;
+  margin-right: 0;
+  @include background($square-color);
+  figure {
+    @include border-radius(50%);
+  }
+  &.middle {
+    @include background($dark-brown);
+  }
 }

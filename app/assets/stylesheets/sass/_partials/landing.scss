@@ -1,27 +1,43 @@
 .landing {
   .top-header {
     background: $primaryColor;
+    height: 60px;
     .logo {
       float: left;
+      text-indent: -9999px;
+      height: 38px;
+      width: 168px;
+      @include background(url('/assets/wd-logo.png'));
     }
     .main-nav {
       float: right;
     }
   }
   .layer-1 {
-    background: url('/assets/main-image.png');
+    @include background(url('/assets/main-image.png'));
     background-size: cover;
     position: relative;
     height: 470px;
     .hero {
-      color: $white;
+      h1, h2, button {
+        color: $white;
+      }
+      h1, h2 {
+        @include text-shadow($black 2px 2px 18px);
+      }
+      h1 {
+        font-weight: 700;
+      }
+      h2 {
+        font-weight: 500;
+      }
     }
 
   }
   .layer-2 {
     background: $layer2bg;
     header {
-      margin-bottom: 30px;
+      margin-bottom: 50px;
       height: 55px;
       text-align: center;
       ul {

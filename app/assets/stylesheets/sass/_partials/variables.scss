@@ -31,7 +31,12 @@ $white: #fff;
 $orange: #fa8859;
 $med-orange: #e37655;
 $seafoam: #a5dbd8;
+
+/* Browns */
+
 $light-brown: #f2f0e4;
+$med-brown: #eae4d8;
+$dark-brown: #cdc1c1;
 
 /* Greens */
 $light-green: #edf2f1;
@@ -74,8 +79,12 @@ $stat-bg: rgba(128, 128, 128, .25);
 $layer1bg: $white;
 $layer2bg: $light-brown;
 
+$main-nav: lighten($primaryColor, 10%);
+
 
 /* Button Colors */
+
+$square-color: $med-brown;
 
 
 /* Event Colors */
@@ -117,12 +126,10 @@ $thick-border: 10px solid;
 $statsSize: 200px;
 $statsBackground: rgba(231,231,232,.5);
 
+$square-size: 275px;
+
+$main-nav-size: 60px;
+
 $maxSiteWidth: 940px;
 
-$giveBtnSize: 250px;
 
-$dotSize: 12px;
-
-$dotPosition: 100px;
-
-$lineSize: 253px;
