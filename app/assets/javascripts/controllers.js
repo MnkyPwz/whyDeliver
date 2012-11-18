@@ -3,13 +3,18 @@
 /* Controllers */
 
 
-controllers.controller('myOrdersController', ['$scope', '$cookies', '$routeParams', '$location', 'Merchant', 'Order', 'Orders', function($scope, $cookies, $routeParams, $location, Merchant, Order, Orders){
+controllers.controller('myOrdersController', ['$scope', '$cookies', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $cookies, $routeParams, $location, Merchant, Order){
 
   $scope.cntlName = 'myOrdersController';
   $scope.params = $routeParams
   $scope.merchant = Merchant.get();
-  $scope.order = Order.get();
-  $scope.orders = Orders.get({ merch_id : 1});
+  $scope.orders = Orders.get({merch_id:'2'});
+
+  // $scope.createOrder = function() {
+  //   $scope.order = 
+  //   Order.save(
+  //   );
+  // };
 
 }]);
 
@@ -18,7 +23,6 @@ controllers.controller('createOrderController', ['$scope', '$cookies', '$routePa
   $scope.name = 'createOrderController';
   $scope.params = $routeParams;
   $scope.orders = Order.get();
-
 
   $scope.order = {};
 
