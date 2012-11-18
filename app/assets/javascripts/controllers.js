@@ -3,29 +3,6 @@
 /* Controllers */
 
 
-controllers.controller('orderCntl', ['$scope', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $routeParams, $location, Order, Merchant){
-
-  $scope.name = 'orderCntl';
-  $scope.params = $routeParams
-  $scope.order = Order.get();
-
-  $scope.getOrder = function() {
-    $scope.order = Order.get({
-      search:$scope.params.tracking
-      },
-      function(data){ //success
-        $scope.order = data
-      },
-      function(data) {
-        // error handling
-      }
-    );
-
-
-  };
-
-}]);
-
 controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $routeParams, $location, Merchant, Order){
 
   $scope.cntlName = 'merchantCntl';
@@ -38,6 +15,29 @@ controllers.controller('merchantCntl', ['$scope', '$routeParams', '$location', '
     Order.save(
       
     );
+  };
+
+}]);
+
+controllers.controller('orderCntl', ['$scope', '$routeParams', '$location', 'Order', 'Merchant', function($scope, $routeParams, $location, Order, Merchant){
+
+  $scope.name = 'orderCntl';
+  $scope.params = $routeParams
+  $scope.order = Order.get();
+
+  $scope.trackOrder = function() {
+    $scope.order = Order.get({
+      id:$scope.params.id
+      },
+      function(data){ //success
+        $scope.order = data
+      },
+      function(data) {
+        // error handling
+      }
+    );
+
+
   };
 
 }]);

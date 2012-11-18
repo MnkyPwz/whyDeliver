@@ -14,7 +14,7 @@ services.factory('Merchant',['$resource', function($resource){
 }]);
 
 services.factory('Order',['$resource', function($resource){
-  return $resource('/api/get_order.json', {}, {
+  return $resource('/api/get_order.json', {id: ''}, {
   	'get':    {method:'GET'},
 	  'save':   {method:'POST'},
 	  'query':  {method:'GET', isArray:true},
