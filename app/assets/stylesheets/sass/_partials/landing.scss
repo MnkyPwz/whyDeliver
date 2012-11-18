@@ -1,0 +1,57 @@
+.landing {
+  .top-header {
+    background: $primaryColor;
+    .logo {
+      float: left;
+    }
+    .main-nav {
+      float: right;
+    }
+  }
+  .layer-1 {
+    background: url('/assets/main-image.png');
+    background-size: cover;
+    position: relative;
+    height: 470px;
+    .hero {
+      color: $white;
+    }
+
+  }
+  .layer-2 {
+    background: $layer2bg;
+    header {
+      margin-bottom: 30px;
+      height: 55px;
+      text-align: center;
+      ul {
+        li {
+          float: left;
+          p {
+            background: $light-grey;
+          }
+        }
+      }
+      h3, h4, p {
+        color: $white;
+        margin: 0;
+      }
+      h3 {
+        position: relative;
+        background: $secondaryColor;
+        line-height: 50px;
+        border-bottom: 15px solid $layer2bg;
+        @include box-shadow(0px 3px 0px $shadow-grey, 0 5px 0 $layer2bg, 0 6px 0 $shadow-grey);
+        &:after {
+          content: "";
+          width: 60px;
+          height: 36px;
+          left: 45%;
+          top: 100%;
+          position: absolute;
+          background: url('/assets/wd-logo.png') no-repeat, $layer2bg;
+        }
+      }
+    }
+  }
+}
