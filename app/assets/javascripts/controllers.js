@@ -8,7 +8,9 @@ controllers.controller('myOrdersController', ['$scope', '$cookies', '$routeParam
   $scope.cntlName = 'myOrdersController';
   $scope.params = $routeParams
   $scope.merchant = Merchant.get();
+  //$scope.orders = Order.get({ merch_id: $scope.merchant.id });
   $scope.orders = Orders.get({ merch_id : 12});
+
 
 }]);
 
@@ -17,7 +19,6 @@ controllers.controller('createOrderController', ['$scope', '$cookies', '$routePa
   $scope.name = 'createOrderController';
   $scope.params = $routeParams;
   $scope.orders = Order.get();
-
 
   $scope.order = {};
 
@@ -34,6 +35,16 @@ controllers.controller('myAccountController', ['$scope', '$cookies', '$routePara
 }]);
 
 
+controllers.controller('trackingController', ['$scope', '$cookies', '$routeParams', '$location', 'Merchant', 'Order', function($scope, $cookies, $routeParams, $location, Merchant, Order){
+  $scope.cntlName = 'trackingController';
+  $scope.params = $routeParams;
+
+  console.log('in trackingcontroller');
+  console.log($routeParams.id);
+  $scope.order = Order.get({ order_id: $routeParams.id});
+}]);
+
+
   // $scope.trackOrder = function() {
   //   $scope.order = Order.get({
   //     id:$scope.params.id
@@ -41,7 +52,7 @@ controllers.controller('myAccountController', ['$scope', '$cookies', '$routePara
   //     function(data){ //success
   //       $scope.order = data
   //     },
-  //     function(data) {
+  //     function(data) 
   //       // error handling
   //     }
   //   );

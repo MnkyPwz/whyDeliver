@@ -25,12 +25,16 @@
     </ul>
     <button>Grab Code</button>
     <!-- %img -->
-    <p>some text</p>
+    <!-- %p {{orders.first}} -->
   </aside>
   <section class='col-2-3 order-list'>
     <nav>
-      <input type='search'>
-      <button>Search</button>
+      <div class='col-3-4'>
+        <input class='search' type='search'>
+      </div>
+      <div class='col-1-4'>
+        <button class='search'>Search</button>
+      </div>
     </nav>
     <table>
       <thead>
@@ -44,9 +48,9 @@
       </thead>
       <tbody>
         <tr ng-repeat='order in orders'>
-          <td class='status'>{{order.status}}</td>
-          <td class='date'>{{order.create_at}}</td>
-          <td class='product'>{{order.product_name}}</td>
+          <td class='status'>{{order.order_status}}</td>
+          <td class='date'>{{order.created_at}}</td>
+          <td class='product'><a href="#/tracking/{{ order.id }}">{{order.product_name}}</a></td>
           <td class='name'>{{order.customer_first_name}} {{order.customer_last_name}}</td>
           <td class='order_id'>{{order.id}}</td>
         </tr>

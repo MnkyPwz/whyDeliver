@@ -28,3 +28,4 @@ services.factory('Orders', ['$resource', function($resource, merch_id){
       'get':    {method:'GET', isArray:true}
   });
 }]);
+

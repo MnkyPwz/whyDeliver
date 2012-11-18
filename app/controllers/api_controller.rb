@@ -11,8 +11,11 @@ class ApiController < ApplicationController
 
 
   def get_order
-    @delivery = Order.first
-    respond_with @delivery
+    puts "here"
+    puts params[:order_id]
+
+    @order = Order.where("id = ?", params[:order_id]).first
+    respond_with @order
   end
 
   def create_order

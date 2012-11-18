@@ -1,5 +1,5 @@
 .dashboard-aside {
-  @include background($white);
+  // @include background($white);
   header {
     h3 {
       color: $white;
@@ -13,7 +13,7 @@
       display: block;
       width: $button-size*1.2;
       height: $button-size/3;
-      margin: 0 auto;
+      margin: 30px auto;
       color: $white;
     }
 
@@ -49,7 +49,20 @@
 }
 
 .order-list {
+
+  .search {
+    height: $button-size/4;
+    line-height: 45px;
+    padding: 10px 30px;
+    text-align: center;
+  }
   table {
+    th, td {
+      vertical-align: middle;
+      min-height: $table-row-size;
+      float: left;
+      text-align: center;
+    }
     thead {
       @include background(linear-gradient(lighten($primaryColor, 5%), darken($primaryColor, 5%)));
       display: block;
@@ -94,6 +107,41 @@
         padding: 0 56px;
       }
       .order_id {
+        padding: 0 23px;
+      }
+    }
+    tbody {
+
+      .status {
+        padding: 0 30px;
+        width: 110px;
+        &.delivered {
+          @include background(darken($primaryColor, 10%));
+        }
+        &.on-route {
+          @include background(lighten($primaryColor, 10%));
+        }
+        &.awaiting-pickup {
+          @include background(lighten($secondaryColor, 10%));
+        }
+        &.awaiting-acceptance {
+          @include background($light-grey);
+        }
+      }
+      .date {
+        width: 71px;
+        padding: 0 18px;
+      }
+      .product {
+        width: 164px;
+        padding: 0 51px;
+      }
+      .name {
+        width: 150px;
+        padding: 0 56px;
+      }
+      .order_id {
+        width: 100px;
         padding: 0 23px;
       }
     }
