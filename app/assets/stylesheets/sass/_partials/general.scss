@@ -47,13 +47,14 @@ body, select, input, textarea {
     width: $circle-size;
     background: $primaryColor;
     @include border-radius(50%);
-    i, h4 {
+    img, h4 {
       text-align: center;
       color: $white;
     }
-    i {
+    img {
       display: block;
-      width: 100%;
+      margin: 30px auto;
+      margin-top: 45px;
       line-height: 140px;
     }
   }
@@ -67,4 +68,37 @@ body, select, input, textarea {
 
 .angular-view {
   background: $light-brown;
+}
+
+
+
+.add, .order, .account, .delivery, .merchant {
+  height: 65px;
+  width: 65px;
+}
+
+.guarantee {
+  img {
+    float: left;
+    display: block;
+  }
+  p {
+    display: block;
+    float: left;
+    font-size: 12px;
+    width: 103px;
+  }
+}
+
+#cycle {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  // float: left;
+  div {
+    @include background($secondaryColor);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }

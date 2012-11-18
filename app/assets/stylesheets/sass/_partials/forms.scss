@@ -37,8 +37,13 @@ input {
     
   }
   &[type='search'] {
+
+    @include appearance(none);
+    @include background($white);
+    border: 2px dotted darken($form-grey, 10%);
     line-height: 60px;
-    height: 60px;
+    height: 52px;
+    padding: 20px;
   }
   &[type='tel'] {
     
@@ -64,7 +69,8 @@ input {
 
 button {
   @extend %button;
-
+  @include font($museo, 700);
+  @include text-shadow(darken($secondaryColor, 10%));
 }
 
 label {

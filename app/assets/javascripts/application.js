@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require cycle
 //= require stripe_initializer
 //= require app.js
 //= require controllers.js

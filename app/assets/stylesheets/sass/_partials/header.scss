@@ -5,38 +5,64 @@
   .logo {
     float: left;
     text-indent: -9999px;
-    height: 38px;
-    width: 168px;
-    @include background(url('/assets/wd-logo.png'));
+    margin-top: 5px;
+    height: 50px;
+    width: 193px;
+    @include background(url('/assets/wd-logo-white.png'));
   }
 }
 .main-nav {
+  .login-icon {
+    width: $main-nav-size/2;
+    height: $main-nav-size/2;
+    margin: 0 auto;
+  }
   position: relative;
   float: right;
-  height: 60px;
+  height: 80px;
   width: $main-nav-size;
   text-align: center;
-  background: $main-nav;
-  z-index: 5;
+  @include background($main-nav);
+  
   @include box-shadow(darken($shadow-grey, 10%) 0px 2px 5px, darken($shadow-grey, 10%) 0px 15px 5px, darken($shadow-grey, 10%) 0px 20px 5px);
+  li{
+    position: relative;
+    @include background($main-nav);
+    z-index: 6;
+    padding: 5px 0;
+    width: 50px;
+    margin: 0 auto;
+    &:first-of-type {
+      border-bottom: 2px solid $form-grey;
+    }
+  }
+  a {
+    font-size: 12px;
+    color: $form-grey;
+    &:hover {
+      color: $link-color;
+    }
+  }
   &:before {
       content:"";
       position: absolute;
-      top: 80%;
+      top: 75%;
       left: 0;
       width: 0;
       height: 0;
       border-top: $main-nav-size solid $main-nav;
       border-right: $main-nav-size solid transparent;
+      z-index: 4;
     }
     &:after {
       content:"";
       position: absolute;
-      top: 80%;
+      top: 75%;
       right: 0px;
       width: 0;
       height: 0;
       border-top: $main-nav-size solid $main-nav;
       border-left: $main-nav-size solid transparent;
+      z-index: 4;
     }
 }

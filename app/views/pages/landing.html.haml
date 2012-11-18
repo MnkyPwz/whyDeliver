@@ -12,23 +12,24 @@
   .wrapper
     %article.grid.pad
       %header.col-1
-        %h3 WHYDELIVER? CAUSE IT'S GREEN
+        %h3 
+          WHYDELIVER? CAUSE IT'S <div id="cycle"><div>FAST</div><div>A LIFESAVER</div><div>CHEAPER</div><div>LOCAL</div><div>GREEN</div><div>SUSTAINABLE</div><div>HELPING COMMUNITIES</div><div>GIVING BACK</div>.</div>
       %ul.group
         %li.col-1-3
           .square.group
-            %figure
-              %i ICON
+            %figure.group
+              %img{:src => "/assets/account-guy.png", :class => 'account'}
               %h4 CUSTOMER
           %p Place an order with a local merchant
         %li.col-1-3
           .square.middle.group
-            %figure
-              %i ICON
+            %figure.group
+              %img{:src => "/assets/account-guy.png", :class => 'merchant'}
               %h4 MERCHANT
           %p Merchant hands off merchant to delivery
         %li.col-1-3
           .square.group
-            %figure
-              %i ICON
+            %figure.group
+              %img{:src => "/assets/briefcase.png", :class => 'delivery'}
               %h4 DELIVERY
           %p Package is delivered to you in as soon as an hour

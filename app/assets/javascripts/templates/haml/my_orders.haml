@@ -17,11 +17,12 @@
         %p.col-2-3.good-text jobs have been created in your area since your joined
 
     %button Grab Code
-    / %img
-    / %p {{orders.first}}
+    .guarantee.group
+      %img{:src => '/assets/guarantee-badge.png'}
+      %p When you arrange delivery with WhyDeliver, your merchandise is 100% insured as long as it’s in our hands.
 
   %section.col-2-3.order-list
-    %nav
+    %nav.group
       .col-3-4
         %input.search{:type => 'search'}
       .col-1-4
@@ -35,9 +36,10 @@
           %th.name NAME
           %th.order_id ORDER #
       %tbody
-        %tr{ 'ng-repeat' => 'order in orders'}
-          %td.status {{order.order_status}}
+        %tr{ 'ng-repeat' => 'order in orders', :class => 'group'}
+          %td.status{:class => '{{order.order_status}}'} {{order.order_status}}
           %td.date {{order.created_at}}
           %td.product {{order.product_name}}
           %td.name {{order.customer_first_name}} {{order.customer_last_name}}
-          %td.order_id {{order.id}}
+          %td.order_id
+            %a{:href => '/tracking/{{order_id}}'} {{order.id}}

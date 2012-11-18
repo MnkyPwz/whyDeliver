@@ -24,11 +24,13 @@
       </li>
     </ul>
     <button>Grab Code</button>
-    <!-- %img -->
-    <!-- %p {{orders.first}} -->
+    <div class='guarantee group'>
+      <img src='/assets/guarantee-badge.png'>
+      <p>When you arrange delivery with WhyDeliver, your merchandise is 100% insured as long as it’s in our hands.</p>
+    </div>
   </aside>
   <section class='col-2-3 order-list'>
-    <nav>
+    <nav class='group'>
       <div class='col-3-4'>
         <input class='search' type='search'>
       </div>
@@ -47,12 +49,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat='order in orders'>
-          <td class='status'>{{order.order_status}}</td>
+        <tr class='group' ng-repeat='order in orders'>
+          <td class='status {{order.order_status}}'>{{order.order_status}}</td>
           <td class='date'>{{order.created_at}}</td>
           <td class='product'>{{order.product_name}}</td>
           <td class='name'>{{order.customer_first_name}} {{order.customer_last_name}}</td>
-          <td class='order_id'>{{order.id}}</td>
+          <td class='order_id'>
+            <a href='/tracking/{{order_id}}'>{{order.id}}</a>
+          </td>
         </tr>
       </tbody>
     </table>
