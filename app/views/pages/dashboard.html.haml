@@ -1,0 +1,27 @@
+%section
+  .wrapper
+    %nav.grid.pad
+      %ul.group
+        %li.col-1-3
+          %a{:href => "/dashboard/#/create_order"}
+            %div.square.group
+              %figure
+                %i ICON
+                %h4 CUSTOMER
+
+        %li.col-1-3
+          %a{:href =>  "/dashboard/#/my_orders"}
+            %div.square.middle.group
+              %figure
+                %i ICON
+                %h4 MERCHANT
+
+        %li.col-1-3
+          %a{:href => "/dashboard/#/my_account"}
+            %div.square.group
+              %figure
+                %i ICON
+                %h4 DELIVERY
+
+
+%section.grid.pad{'ng-view'=>true}

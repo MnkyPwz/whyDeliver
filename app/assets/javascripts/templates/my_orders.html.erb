@@ -1,22 +1,48 @@
-<header>
-
-<h1>{{merchant.name}}</h1>
-<p>{{merchant.phone}}</p>
-<p>{{merchant.address}}</p>
-<p>{{merchant.lat}}, {{merchant.long}}</p>
-<p>{{merchant.email}}</p>
-
-</header>
-
-<article>
-  <ul>
-    <li>
-      <p>{{orders.address}}</p>
-      <p>{{orders.status}}</p>
-      <p>{{orders.destination_lat}}</p>
-      <p>{{orders.destination_long}}</p>
-      <p>{{orders.charge}}</p>
-      <p>{{orders.transporter_id}}</p>
-    </li>
-  </ul>
-</article>
+<div class='wrapper'>
+  <aside class='col-1-3'>
+    <header></header>
+    <ul>
+      <li>
+        <div class='number'>40</div>
+        <p>some test</p>
+      </li>
+      <li>
+        <div class='number'>40</div>
+        <p>some test</p>
+      </li>
+      <li>
+        <div class='number'>40</div>
+        <p>some test</p>
+      </li>
+    </ul>
+    <button></button>
+    <img>
+    <p>some text</p>
+  </aside>
+  <section class='col-2-3'>
+    <nav>
+      <input type='search'>
+      <button>Search</button>
+    </nav>
+    <table>
+      <thead>
+        <tr>
+          <th>STATUS</th>
+          <th>DATE</th>
+          <th>ORDER</th>
+          <th>NAME</th>
+          <th>ORDER #</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='order in orders'>
+          <td>{{order.status}}</td>
+          <td>{{order.create_at}}</td>
+          <td>{{order.product_name}}</td>
+          <td>{{order.customer_first_name}} {{order.customer_last_name}}</td>
+          <td>{{order.id}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -1,29 +1,20 @@
-
-  <p>{{ order | json}}</p>
-
-<form action="/api/order" accept-charset="UTF-8" method="post">
-
-  
-
-  <input type="text" name="customer_first_name" ng-model="order.customer_first_name">
-  <label for="customer_first_name" class="">First Name</label>
-
-  <input type="text" name="customer_last_name" ng-model="order.customer_last_name">
-  <label for="customer_last_name" class="">Last Name</label>
-
-  <input type="text" name="address" ng-model="order.address">
-  <label for="address" class="address">Address</label>
-
-  <input type="text" name="customer_email" ng-model="order.customer_email">
-  <label for="customer_email" class="">Email</label>
-
-  <input type="text" name="customer_phone" ng-model="order.customer_phone">
-  <label for="customer_phone" class="">Phone #</label>
-
-  <input type="text" name="product_name" ng-model="order.product_name">
-  <label for="product_name" class="">Product Name</label>
-
-  <button ng-click="update($event)">Create Order</button>
-
-</form>
-
+<div class='wrapper'>
+  <p>{{order | json}}</p>
+  <form accept-charset='UTF-8' action='/api/order' method='post'>
+    <input name='customer_first_name' ng-model='order.customer_first_name' type='text'>
+    <label for='customer_first_name'>First Name</label>
+    <input name='customer_last_name' ng-model='order.customer_last_name' type='text'>
+    <label for='customer_last_name'>First Name</label>
+    <input name='customer_first_name' ng-model='order.customer_first_name' type='text'>
+    <label for='customer_first_name'>First Name</label>
+    <input name='address' ng-model='order.address' type='text'>
+    <label for='address'>First Name</label>
+    <input name='customer_email' ng-model='order.customer_email' type='text'>
+    <label for='customer_email'>First Name</label>
+    <input name='customer_phone' ng-model='order.customer_phone' type='text'>
+    <label for='customer_phone'>First Name</label>
+    <input name='product_name' ng-model='order.product_name' type='text'>
+    <label for='product_name'>First Name</label>
+    <button ng-click='update($event)'>Create Order</button>
+  </form>
+</div>

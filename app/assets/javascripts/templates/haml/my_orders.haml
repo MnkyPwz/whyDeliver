@@ -1,0 +1,36 @@
+.wrapper
+  %aside.col-1-3
+    %header
+    %ul
+      %li
+        .number 40
+        %p some test
+      %li
+        .number 40
+        %p some test
+      %li
+        .number 40
+        %p some test
+    %button
+    %img
+    %p some text
+
+  %section.col-2-3
+    %nav
+      %input{:type => 'search'}
+      %button Search
+    %table
+      %thead
+        %tr
+          %th STATUS
+          %th DATE
+          %th ORDER
+          %th NAME
+          %th ORDER #
+      %tbody
+        %tr{ 'ng-repeat' => 'order in orders'}
+          %td {{order.status}}
+          %td {{order.create_at}}
+          %td {{order.product_name}}
+          %td {{order.customer_first_name}} {{order.customer_last_name}}
+          %td {{order.id}}

@@ -1,0 +1,27 @@
+.wrapper
+  %p {{order | json}}
+
+  %form{:action => "/api/order", 'accept-charset'=>'UTF-8', :method => 'post'}
+
+    %input{:type => 'text', :name => 'customer_first_name', 'ng-model' => 'order.customer_first_name'}
+    %label{:for => 'customer_first_name'} First Name
+
+    %input{:type => 'text', :name => 'customer_last_name', 'ng-model' => 'order.customer_last_name'}
+    %label{:for => 'customer_last_name'} First Name
+
+    %input{:type => 'text', :name => 'customer_first_name', 'ng-model' => 'order.customer_first_name'}
+    %label{:for => 'customer_first_name'} First Name 
+
+    %input{:type => 'text', :name => 'address', 'ng-model' => 'order.address'}
+    %label{:for => 'address'} First Name 
+
+    %input{:type => 'text', :name => 'customer_email', 'ng-model' => 'order.customer_email'}
+    %label{:for => 'customer_email'} First Name 
+
+    %input{:type => 'text', :name => 'customer_phone', 'ng-model' => 'order.customer_phone'}
+    %label{:for => 'customer_phone'} First Name 
+
+    %input{:type => 'text', :name => 'product_name', 'ng-model' => 'order.product_name'}
+    %label{:for => 'product_name'} First Name
+
+    %button{'ng-click' => 'update($event)'} Create Order
