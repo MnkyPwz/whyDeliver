@@ -10,8 +10,8 @@ class Order < ActiveRecord::Base
   belongs_to :merchant
 
   before_create :geolocate_address, :calculate_shipping_distance
-
-  after_update :charge_customer, :order_acceptance_email, :calculate_driver_eta
+  
+  after_update :add_driver, :charge_customer, :order_acceptance_email, :calculate_driver_eta
   
   private
   def geolocate_address
@@ -49,7 +49,16 @@ class Order < ActiveRecord::Base
     end
   end
   
+  def add_driver
+    
+  end
+  
   def calculate_driver_eta
+    if self.order_status_changed? && self.order_status == "accepted"
+      first_distance = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.transporter.current_lat},#{self.transporter.current_long}&destinations=#{self.lat},#{self.long}&sensor=true&mode=driving&units=imperial"
+      second_distance = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.merchant.lat},#{self.merchant.long}&destinations=#{self.destination_lat},#{self.destination_long}&sensor=true&mode=driving&units=imperial"
+      self.delivery_distance = "" 
+    end
   end
 
 end
