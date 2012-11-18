@@ -1,12 +1,13 @@
 WhyDeliver::Application.routes.draw do
 
-  get "/sign_in" => "sessions#new", :as => 'sign_in'
-  post "/sign_in" => "sessions#create", :as => 'sign_in'
+  get "/login" => "sessions#new", :as => 'sign_in'
+  post "/login" => "sessions#create", :as => 'sign_in'
+  get "/sign-up" => "merchants#new", :as => 'sign_up'
   get "/sign_out" => "sessions#destroy", :as => "sign_out"
 
   get "/pages/dashboard", :as => "dashboard"
 
-  root :to => "pages#dashboard"
+  root :to => "pages#landing"
 
   resources :statuses
 
@@ -17,7 +18,11 @@ WhyDeliver::Application.routes.draw do
 
   resources :merchants
   
+  get "/dashboard" => "pages#dashboard"
+
   get "/fakeiphone" => "pages#fakeiphone", :as => 'fakeiphone'
+  get "/ipsum" => "pages#ipsum"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

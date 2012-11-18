@@ -10,4 +10,8 @@ class PagesController < ApplicationController
   
   def fakeiphone
   end
+
+  def ipsum
+  end
+  
 end

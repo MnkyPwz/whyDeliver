@@ -1,0 +1,47 @@
+%header
+  %nav
+    =link_to root_url, :class => 'logo'
+
+    %ul.main-nav
+      %li=link_to "Sign In", sign_in_url
+      %li=link_to "Sign Up", sign_up_url
+
+%section
+  %header.hero
+    %h1 ORDERED BY YOU.
+    %h2 DELIVERED BY YOUR NEIGHBOR.
+    %button Delivery
+    %button Merchant
+
+%section
+  %article
+    %header
+      %h3 WHYDELIVER? CAUSE IT'S GREEN
+    %ul
+      %li
+        %figure
+          %i
+          %h4 CUSTOMER
+        %p Place an order with a local merchant
+      %li
+        %figure
+          %i
+          %h4 MERCHANT
+        %p Merchant hands off merchant to delivery
+      %li
+        %figure
+          %i
+          %h4 DELIVERY
+        %p Package is delivered to you as soon as an hour
+
+%footer
+  %nav
+    %ul.sm-icons
+    %ul.footer-nav
+      %li ABOUT US
+      %li OUR TEAM
+      %li PRESS & MEDIA
+      %li FAQ
+      %li PRIVACY
+      %li TERMS
+      %li CONTACT
