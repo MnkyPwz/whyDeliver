@@ -1,5 +1,5 @@
 .dashboard-aside {
-  @include background($white);
+  // @include background($white);
   header {
     h3 {
       color: $white;
@@ -13,7 +13,7 @@
       display: block;
       width: $button-size*1.2;
       height: $button-size/3;
-      margin: 0 auto;
+      margin: 30px auto;
       color: $white;
     }
 
@@ -49,6 +49,13 @@
 }
 
 .order-list {
+
+  .search {
+    height: $button-size/4;
+    line-height: 45px;
+    padding: 10px 30px;
+    text-align: center;
+  }
   table {
     thead {
       @include background(linear-gradient(lighten($primaryColor, 5%), darken($primaryColor, 5%)));
