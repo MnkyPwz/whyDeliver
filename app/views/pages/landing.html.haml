@@ -1,4 +1,4 @@
-%header
+%header.grid
   %nav
     =link_to root_url, :class => 'logo'
 
@@ -6,14 +6,14 @@
       %li=link_to "Sign In", sign_in_url
       %li=link_to "Sign Up", sign_up_url
 
-%section
+%section.grid
   %header.hero
     %h1 ORDERED BY YOU.
     %h2 DELIVERED BY YOUR NEIGHBOR.
     %button Delivery
     %button Merchant
 
-%section
+%section.grid
   %article
     %header
       %h3 WHYDELIVER? CAUSE IT'S GREEN
@@ -38,10 +38,10 @@
   %nav
     %ul.sm-icons
     %ul.footer-nav
-      %li ABOUT US
-      %li OUR TEAM
-      %li PRESS & MEDIA
-      %li FAQ
-      %li PRIVACY
-      %li TERMS
-      %li CONTACT
+      %li=link_to 'ABOUT US', '#'
+      %li=link_to 'OUR TEAM', '#'
+      %li=link_to 'PRESS & MEDIA', '#'
+      %li=link_to 'FAQ', '#'
+      %li=link_to 'PRIVACY', '#'
+      %li=link_to 'TERMS', '#'
+      %li=link_to 'CONTACT', '#'
