@@ -2,6 +2,14 @@ footer {
   background: $primaryColor;
 }
 
+.sm-icons {
+  float: left;
+  li {
+    float: left;
+    margin: 0 10px;
+  }
+}
+
 .footer-nav {
   float: right;
   li {

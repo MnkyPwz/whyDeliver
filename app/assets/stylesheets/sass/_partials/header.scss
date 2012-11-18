@@ -1,5 +1,18 @@
+
+.top-header {
+  background: $primaryColor;
+  height: 60px;
+  .logo {
+    float: left;
+    text-indent: -9999px;
+    height: 38px;
+    width: 168px;
+    @include background(url('/assets/wd-logo.png'));
+  }
+}
 .main-nav {
   position: relative;
+  float: right;
   height: 60px;
   width: $main-nav-size;
   text-align: center;

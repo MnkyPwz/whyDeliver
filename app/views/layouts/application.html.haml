@@ -59,6 +59,8 @@
 
 %body{:id => controller.controller_name, :class => controller.action_name, 'ng-app' => 'whydeliver' }
 
+  = render 'shared/header'
+  
   = yield
 
   = render 'shared/footer'
