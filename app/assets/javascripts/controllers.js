@@ -29,7 +29,7 @@ controllers.controller('createOrderController', ['$scope', '$cookies', '$routePa
   $scope.update = function(e) {
     e.preventDefault();
     Order.save({order:$scope.order});
-    $location.path('/my_account');
+    $location.path('/my_orders');
   }
 }]);
   
