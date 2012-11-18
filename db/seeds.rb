@@ -15,7 +15,7 @@
                                  :stripe_customer_id => "cus_0l8lcLVFAroGz6",
                                  :email => "rudyonrails@gmail.com",
                                  :password => "testing",
-                                 :password_confirmation => "swchicago")
+                                 :password_confirmation => "testing")
 
  psychobaby = Merchant.create(:name => "Psychobaby",
                                  :phone => 7737722815,
@@ -25,11 +25,14 @@
                                  :stripe_customer_id => "cus_0l8mgIHPSSxvfr",
                                  :email => "contrerasnet@gmail.com",
                                  :password => "testing",
-                                 :password_confirmation => "swchicago")
+                                 :password_confirmation => "testing")
+
+
 
 
  Order.delete_all
  p beard_papa
+
  order1 = beard_papa.orders.build(:address => "222 W. Merchandise Mart",
                                               :customer_first_name => "Jimmy",
                                               :customer_last_name => "Odom",
