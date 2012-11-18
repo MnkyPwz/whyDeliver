@@ -4,9 +4,22 @@
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
-      #map_canvas { height: 50%; margin: 0px auto; }
+      #map_canvas { height: 75%; margin: 0px auto; }
+      .labels {
+         color: red;
+         background-color: white;
+         font-family: "Lucida Grande", "Arial", sans-serif;
+         font-size: 12px;
+         font-weight: bold;
+         text-align: center;
+         width: 100%; 
+         padding-left: 3px; padding-right: 3px;    
+         border: 2px solid black;
+         white-space: nowrap;
+       }
     </style>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= GOOGLEMAPS_API_KEY %>&sensor=true"></script>
+    <script type="text/javascript" src="<%= asset_path('markerWithLabel.js') %>"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
     <script type="text/javascript">
       function initialize() {
@@ -19,8 +32,6 @@
           zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        map = new google.maps.Map(document.getElementById("map_canvas"),
-            mapOptions);
         
         bike_north = "<%= asset_path('bike_north.png') %>"; 
         bike_west = "<%= asset_path('bike_west.png') %>";
@@ -37,18 +48,19 @@
           strokeOpacity:0.8,
           strokeWeight:3.5
         });
-        
-        polyline.setMap(map);        
-        
-        // var OverPoly = myResult.routes[curRoute].overview_polyline.points;
-        // var DePoly = google.maps.geometry.encoding.decodePath(OverPoly);
-        // var polyline = new google.maps.Polyline({map:map, path:DePoly});
-            
-        marker = new google.maps.Marker({
+                            
+        marker = new MarkerWithLabel({
           position: myLatLng,
           title: "whyDeliver?",
-          icon: bike_north
+          icon: bike_north,
+          labelText: "ETA: 10 minutes",
+          // labelAnchor: new google.maps.Point(50, 50),
+          labelClass: "labels",
+          labelStyle: {opacity: 0.75}
         }); 
+        
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        polyline.setMap(map);        
         marker.setMap(map);
       }
     </script>
@@ -56,7 +68,7 @@
     <script type="text/javascript">    
       var i = 0;
     
-      window.setInterval(moveMap, 1500);
+      int = window.setInterval(moveMap, 1500);
       
       function moveMap() {
         lat = moves[i]["lat"];
@@ -78,6 +90,15 @@
         if (i % 3  == 0) {
           map.panTo(new google.maps.LatLng(lat, longt));
         }
+        
+        var minutes;
+        if (Math.ceil(10-(i*1.5)) < 0) {
+          minutes = 0; 
+        } else {
+          minutes = parseInt(Math.ceil(10-(i*1.5)));
+        }
+        
+        marker.labelText = "ETA: "+ minutes +" minutes";
           
         marker.setPosition(new google.maps.LatLng(lat, longt));
         marker.setMap(map);
@@ -85,14 +106,12 @@
         i++;
         
         if (i == moves.length) {
-          alert("Your package has arrived");
+          alert("Your package has arrived", window.clearInterval(int) );
         }
       }   
     </script>
   </head>
-  <body onload="initialize()">
-    <p>Time Until Arrival</p>
-    
-    <div id="map_canvas" style="width:50%; height:50%"></div>
+  <body onload="initialize()">    
+    <div id="map_canvas" style="width:75%; height:75%"></div>
   </body>
 </html>
