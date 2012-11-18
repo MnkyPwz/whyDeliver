@@ -4,6 +4,7 @@ WhyDeliver::Application.routes.draw do
   post "/sign_in" => "sessions#create", :as => 'sign_in'
   get "/sign_out" => "sessions#destroy", :as => "sign_out"
 
+  get "/pages/map"
   get "/pages/dashboard", :as => "dashboard"
 
   root :to => "pages#dashboard"

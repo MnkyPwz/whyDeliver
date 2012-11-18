@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 50%; margin: 0px auto; }
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= GOOGLEMAPS_API_KEY %>&sensor=true"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+    <script type="text/javascript">
+      function initialize() {
+        var myLatLng = new google.maps.LatLng(<%= @transporter.current_lat %>, <%= @transporter.current_long %>);
+        
+        var mapOptions = {
+          center: myLatLng,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+        
+        bike_north = "<%= asset_path('bike_north.png') %>"; 
+        bike_west = "<%= asset_path('bike_west.png') %>";
+        
+        orientation = "north";
+            
+        marker = new google.maps.Marker({
+          position: myLatLng,
+          title: "whyDeliver?",
+          icon: bike_north
+        }); 
+        marker.setMap(map);
+      }
+    </script>
+    
+    <script type="text/javascript">    
+      moves = [{"lat":41.8833121,"long":-87.6281568},{"lat":41.88451024123208,"long":-87.62787785026245},{"lat":41.88580420852682,"long":-87.62796368095093},{"lat":41.88690645629254,"long":-87.62794222327881},{"lat":41.88690645629254,"long":-87.63092483970337},{"lat":41.88690645629254,"long":-87.63255562278442},{"lat":41.88880738964271,"long":-87.63259853812866},{"lat":41.88922271208904,"long":-87.63401474448852},{"lat":41.88922271208904,"long":-87.63401474448852}]
+      var i = 0;
+    
+      window.setInterval(moveMap, 1500);
+      
+      function moveMap() {
+        lat = moves[i]["lat"];
+        longt = moves[i]["long"];
+        
+        if (i == 3) {
+          marker.icon = bike_west;
+        }
+        
+        if (i == 5) {
+          marker.icon = bike_north;
+        }
+        
+        if (i == 7) {
+          marker.icon = bike_west;
+        }
+
+        
+        if (i % 3  == 0) {
+          map.panTo(new google.maps.LatLng(lat, longt));
+        }
+          
+        marker.setPosition(new google.maps.LatLng(lat, longt));
+        marker.setMap(map);
+                
+        i++;
+        
+        if (i == moves.length) {
+          alert("Your package has arrived");
+        }
+      }   
+    </script>
+  </head>
+  <body onload="initialize()">
+    <p>Time Until Arrival</p>
+    
+    <div id="map_canvas" style="width:50%; height:50%"></div>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  layout "application", :except => [:map]
+
   def landing
   end
 
@@ -9,4 +11,9 @@ class PagesController < ApplicationController
   
   def fakeiphone
   end
+  
+  def map
+    @transporter = Transporter.last
+  end
+  
 end
