@@ -40,6 +40,7 @@ body, select, input, textarea {
   width: $square-size;
   margin-right: 0;
   @include background($square-color);
+  @include transition();
   figure {
     display: block;
     margin: 35px auto;
@@ -47,6 +48,7 @@ body, select, input, textarea {
     width: $circle-size;
     background: $primaryColor;
     @include border-radius(50%);
+    @include transition();
     img, h4 {
       text-align: center;
       color: $white;
@@ -63,10 +65,12 @@ body, select, input, textarea {
       margin-left: 55px;
     }
   }
-  &.middle {
+  &:hover, &:focus {
     @include background($dark-brown);
+    @include transition();
     figure {
       @include background($dark-grey);
+      @include transition();
     }
   }
 }

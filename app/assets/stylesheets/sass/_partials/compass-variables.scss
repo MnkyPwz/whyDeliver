@@ -44,8 +44,8 @@ $default-skew-y: 5deg;
 
 /* Transition Defaults */
 $default-transition-property: all;
-$default-transition-duration: 1s;
-$default-transition-function: false;
+$default-transition-duration: .5s;
+$default-transition-function: ease-in-out;
 $default-transition-delay: false;
 $transitionable-prefixed-values: transform, transform-origin;
 
