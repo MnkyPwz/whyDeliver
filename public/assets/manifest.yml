@@ -31,4 +31,4 @@ templates/haml/tracking.haml: templates/haml/tracking-7c0baf5be5afe677e7cecf0737
 templates/my_account.html: templates/my_account-62ba5366d4224561a612bb9999bfdd55.html
 templates/my_orders.html: templates/my_orders-7b64b624aeca09027137c707df222d02.html
 templates/tracking.html: templates/tracking-2b014b7eaa940a96bc36873ae1a45efe.html
-application.css: application-f096ae11b04eea3b97f4a6c31329c23f.css
+application.css: application-22189e14d5761c48ffa3f27f68e7f4f7.css
