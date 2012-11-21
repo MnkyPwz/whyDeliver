@@ -55,7 +55,7 @@ a {
   font-size: 1em;
   &:hover, 
   &:focus {
-    color: $link-hover;
+    color: $link-hover-extra;
     @include transition(.5s ease-in-out);
   }
 }
@@ -95,8 +95,8 @@ b, strong {
 }
 
 i {
-  font-family: 'SSSocial-circle';
-  font-size: 12px;
+  font-family: 'SSSocial';
+  font-size: 24px;
 }
 
 ins, u {

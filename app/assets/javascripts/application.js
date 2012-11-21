@@ -21,4 +21,4 @@
 //= require angular-resource.min.js
 //= require angular-cookies.min.js
 //= require pages
-//= require ss-social
+//= require ss-social.js
