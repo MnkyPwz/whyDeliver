@@ -129,6 +129,7 @@
         box-shadow: 0px 2px 0px $light-grey, 0px 5px 0px $light-brown;
         text-align: center;
         vertical-align: middle;
+        font-size: 16px;
       }
 
       .status {
@@ -169,6 +170,16 @@
         width: 90px;
         padding: 0 10px;
         line-height: 100px;
+        font-size: 24px;
+        a {
+          color: $secondaryColor;
+          @include transition();
+          font-weight: 700;
+          &:hover, &:focus {
+            text-decoration: underline;
+            color: ligthen($secondaryColor, 10%);
+          }
+        }
       }
     }
   }
