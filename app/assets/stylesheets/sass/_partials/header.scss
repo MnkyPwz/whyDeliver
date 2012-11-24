@@ -15,57 +15,27 @@
   }
 }
 .main-nav {
-  .login-icon {
-    width: $main-nav-size/2;
-    height: $main-nav-size/2;
-    margin: 0 auto;
-  }
   position: relative;
   float: right;
-  height: 80px;
-  width: $main-nav-size;
+  height: 122px;
+  width: 116px;
   text-align: center;
-  @include background($main-nav);
-  
-  @include box-shadow(darken($shadow-grey, 10%) 0px 2px 5px, darken($shadow-grey, 10%) 0px 15px 5px, darken($shadow-grey, 10%) 0px 20px 5px);
+  @include background(url('/assets/turqoiseband.png'));
   li{
     position: relative;
-    @include background($main-nav);
+    @include background(transparent);
     z-index: 6;
     padding: 5px 0;
     width: 50px;
     margin: 0 auto;
-    &:first-of-type {
-      border-bottom: 2px solid $form-grey;
-    }
+    top: 52px;
+    font-weight: 900;
   }
   a {
-    font-size: 12px;
+    font-size: 14px;
     color: $form-grey;
     &:hover {
       color: $link-color;
     }
   }
-  &:before {
-      content:"";
-      position: absolute;
-      top: 75%;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-top: $main-nav-size solid $main-nav;
-      border-right: $main-nav-size solid transparent;
-      z-index: 4;
-    }
-    &:after {
-      content:"";
-      position: absolute;
-      top: 75%;
-      right: 0px;
-      width: 0;
-      height: 0;
-      border-top: $main-nav-size solid $main-nav;
-      border-left: $main-nav-size solid transparent;
-      z-index: 4;
-    }
 }
