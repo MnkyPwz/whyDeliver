@@ -116,11 +116,14 @@ label {
     .checkboxes {
       @include background(transparentize($black, .5));
       label {
+        margin-left: -5px;
         height: 57px;
         text-align: center;
         vertical-align: middle;
         padding-top: 17px;
-        @include font();
+        @include font($museo);
+        color: $white;
+        font-size: 16px;
       }
     }
     #mc-embedded-subscribe {
