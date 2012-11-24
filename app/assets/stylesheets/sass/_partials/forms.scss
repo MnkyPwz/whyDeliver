@@ -63,7 +63,24 @@ input {
     width: 10px;
   }
   &[type='submit'] {
-    @include button($secondaryColor);  
+    @include button($secondaryColor);
+    @include font($museo, 700);
+    font-size: 18px;
+    color: $white;
+  }
+}
+
+input[type='radio'] {
+  @include appearance(none);
+  @include background(url('/assets/wd-radio-buttons.png') no-repeat);
+  border-bottom: none;
+  height: 57px;
+  width: 56px;
+  &:hover, &:focus, &:active {
+    @include background(url('/assets/wd-radio-buttons.png') -56px 0px no-repeat);
+  }
+  &:checked {
+    @include background(url('/assets/wd-radio-buttons.png') -112px 0px no-repeat);
   }
 }
 
@@ -82,9 +99,37 @@ button {
 label {
   font-size: 12px;
   line-height: 12px;
-  display: block;
   margin: 5px 10px;
   color: lighten($form-grey, 20%);
   @include float;
+}
+
+#mc_embed_signup {
+  width: 550px;
+  @include background(transparent);
+  form {
+    @include background(transparent);
+    #mce-EMAIL {
+      @include background(transparentize($white, .3));
+      border: 2px solid $primaryColor;
+    }
+    .checkboxes {
+      @include background(transparentize($black, .5));
+      label {
+        height: 57px;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 17px;
+        @include font();
+      }
+    }
+    #mc-embedded-subscribe {
+      @include button(lighten($primaryColor, .5));
+      margin-top: 30px;
+      width: 280px;
+      color: $white;
+      @include text-shadow(darken($primaryColor, 10%) 3px 3px);
+    }
+  }
 }
 
