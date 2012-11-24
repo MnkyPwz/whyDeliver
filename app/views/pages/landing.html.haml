@@ -3,10 +3,28 @@
     %header.grid.pad.hero.group
       %h1 ORDERED BY YOU.
       %h2 DELIVERED BY YOUR NEIGHBOR.
-      %button.group
-        =link_to 'DELIVERY', '/form'
-      %button.group
-        =link_to 'MERCHANT', '/form'
+      #mc_embed_signup
+        %form{:action => "http://whydeliver.us6.list-manage1.com/subscribe/post?u=017b23b3f5bced4fe5f622890&amp;id=472dedf596", :method => 'post', :class => 'validate', :traget => '_blank', 'novalidate' => 'novalidate'}
+          %input#mce-EMAIL.required.email{:type => 'email', :value => '', :name => 'EMAIL'}
+          %fieldset.checkboxes
+
+            %input{:type => 'radio', :value => '1', :name => 'group[1933]', :id => 'mce-group[1933]-1933-0'}
+            %label{:for => 'mce-group[1933]-1933-0'} MERCHANT
+
+            %input{:type => 'radio', :value => '4', :name => 'group[1933]', :id => 'mce-group[1933]-1933-1'}
+            %label{:for => 'mce-group[1933]-1933-1'} CUSTOMER
+            
+            %input{:type => 'radio', :value => '2', :name => 'group[1933]', :id => 'mce-group[1933]-1933-2'}
+            %label{:for => 'mce-group[1933]-1933-2'} DELIVERER
+
+            %input{:type => 'radio', :value => '8', :name => 'group[1933]', :id => 'mce-group[1933]-1933-3'}
+            %label{:for => 'mce-group[1933]-1933-3'} PARTNER
+
+          %input{:type => 'submit', :value => 'SIGN UP', :name => 'subscribe', :id => 'mc-embedded-subscribe', :class => 'button'}
+      / %button.group
+      /   =link_to 'DELIVERY', '/form'
+      / %button.group
+      /   =link_to 'MERCHANT', '/form'
 
 %section.layer-2
   .wrapper

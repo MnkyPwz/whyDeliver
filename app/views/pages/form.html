@@ -42,4 +42,19 @@
 	</form>
 </div>
 
+#mc_embed_signup
+	%form{:action => "#", :method => 'post', :class => 'validate', :traget => '_blank', 'novalidate' => 'novalidate'}
+		%input#mce-EMAIL.required.email{:type => 'email', :value => '', :name => 'EMAIL'}
+		%fieldset
+			%ul
+				%li
+					%input{:type => 'radio', :value => '1', :name => 'group[1621][1]', :id => 'mce-group[1621]-1621-0'}
+					%label{:for => 'mce-group[1621]-1621-0'} MERCHANT
+				%li
+					%input{:type => 'radio', :value => '1', :name => 'group[1621][2]', :id => 'mce-group[1621]-1621-1'}
+					%label{:for => 'mce-group[1621]-1621-1'} DELIVERER
+				%li
+					%input{:type => 'radio', :value => '1', :name => 'group[1621][4]', :id => 'mce-group[1621]-1621-2'}
+					%label{:for => 'mce-group[1621]-1621-2'} CUSTOMER
+
 <!--End mc_embed_signup-->
