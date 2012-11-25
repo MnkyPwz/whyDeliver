@@ -57,7 +57,7 @@ module WhyDeliver
     config.assets.enabled = true
 
     #prevent initializing your application and connecting to the database
-    config.assets.initialize_on_precompile = false
+    #config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
