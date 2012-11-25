@@ -16,7 +16,7 @@
 //= require /js/functions
 //= require /js/ios-orientationchange-fix
 //= require cycle
-//= require stripe_initializer
+//=# require stripe_initializer
 //= require app.js
 //= require controllers.js
 //= require filters.js
