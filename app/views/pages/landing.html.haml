@@ -1,8 +1,10 @@
 %section.layer-1
   .wrapper
     %header.grid.pad.hero.group
-      .gsb
-        %h3 VOTE FOR US IN THE GLOBAL STARTUP BATTLE!
+      / .gsb
+      /   %a{:href => 'http://bit.ly/UZS7ur', :alt => 'VOTE FOR US IN THE GLOBAL STARTUP BATTLE!' }
+      /     %h3 VOTE FOR US IN THE GLOBAL STARTUP BATTLE!
+      / .gsb-shade
       %h1 ORDERED BY YOU.
       %h2 DELIVERED BY YOUR NEIGHBOR.
       #mc_embed_signup
@@ -32,8 +34,11 @@
   .wrapper
     %article.grid.pad
       %header.col-1
-        %h3
-          GET SAME DAY DELIVERY FROM LOCAL MERCHANTS.
+        .banner
+          =image_tag '/assets/orangeribbon.png', :class => 'ribbon'
+          =image_tag '/assets/chicagobadge.png', :class => 'swchi-winner'
+          %h3
+            GET SAME DAY DELIVERY FROM LOCAL MERCHANTS.
           / WHYDELIVER? CAUSE IT'S <div id="cycle"><div>FAST.</div><div>CHEAPER.</div><div>LOCAL.</div><div>GREEN.</div><div>SUSTAINABLE.</div><div>HELPS.</div></div>
       %ul.group
         %li.col-1-3
