@@ -19,8 +19,7 @@ group :production do
 end
 
 gem 'haml-rails'
-gem "compass", "~> 0.12.2"
-gem "compass-rails", "~> 1.0.3"
+gem "compass-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
