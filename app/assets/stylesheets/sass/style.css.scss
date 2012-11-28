@@ -12,13 +12,13 @@
 
 @import "_partials/compass-variables";
 
-@import "compass/css3";
-@import "compass/typography";
-@import "compass/utilities/color";
-@import "compass/utilities/general/float";
-@import "compass/utilities/general/min";
-@import "compass/layout/stretching";
-@import "compass/layout/sticky-footer";
+@import "../compass/css3";
+@import "../compass/typography";
+@import "../compass/utilities/color";
+@import "../compass/utilities/general/float";
+@import "../compass/utilities/general/min";
+@import "../compass/layout/stretching";
+@import "../compass/layout/sticky-footer";
 
 /* Include if we need a sticky footer, sets up @include sticky-footer(); mixin, see
  * http://compass-style.org/reference/compass/layout/sticky_footer/ for more details,
