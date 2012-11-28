@@ -1,27 +1,27 @@
 $ ->
      
-  $("#clock-in").on "click", (e) ->
-    transporter_id = $(e.target).attr("data-id")
+ #  $("#clock-in").on "click", (e) ->
+ #    transporter_id = $(e.target).attr("data-id")
      
-    $.ajax
-      url: "/transporters/#{transporter_id}"
-      type: "PUT"
-      data: { transporter: { available: true } }
+ #    $.ajax
+ #      url: "/transporters/#{transporter_id}"
+ #      type: "PUT"
+ #      data: { transporter: { available: true } }
      
-  $("#clock-out").on "click", (e) ->
-   transporter_id = $(e.target).attr("data-id")
-   $.ajax
-     url: "/transporters/#{transporter_id}"
-     type: "PUT"
-     data: { transporter: { available: false } }
+ #  $("#clock-out").on "click", (e) ->
+ #   transporter_id = $(e.target).attr("data-id")
+ #   $.ajax
+ #     url: "/transporters/#{transporter_id}"
+ #     type: "PUT"
+ #     data: { transporter: { available: false } }
       
- $("#accept-order").on "click", (e) ->
-   transporter_id = $(e.target).attr("data-id")
+ # $("#accept-order").on "click", (e) ->
+ #   transporter_id = $(e.target).attr("data-id")
       
-   $.ajax
-     url: "/orders/<%= Order.last.id %>"
-     type: "PUT"
-     data: { transporter: { id: transporter_id, driver_lat: 41.8883776, driver_long: -87.6365131} }
+ #   $.ajax
+ #     url: "/orders/<%= Order.last.id %>"
+ #     type: "PUT"
+ #     data: { transporter: { id: transporter_id, driver_lat: 41.8883776, driver_long: -87.6365131} }
       
  $("#new_merchant").submit (event) ->      
    $(".submit-button").attr "disabled", "disabled"
