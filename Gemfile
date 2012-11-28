@@ -19,6 +19,7 @@ group :production do
 end
 
 gem 'haml-rails'
+gem 'compass'
 gem 'compass-rails'
 
 # Gems used only for assets and not required
