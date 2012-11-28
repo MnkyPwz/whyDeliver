@@ -10,15 +10,15 @@
  *
  ****************************************************************************** */
 
-@import "_partials/compass-variables";
+@import "sass/_partials/compass-variables";
 
-@import "../compass/css3";
-@import "../compass/typography";
-@import "../compass/utilities/color";
-@import "../compass/utilities/general/float";
-@import "../compass/utilities/general/min";
-@import "../compass/layout/stretching";
-@import "../compass/layout/sticky-footer";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/utilities/color";
+@import "compass/utilities/general/float";
+@import "compass/utilities/general/min";
+@import "compass/layout/stretching";
+@import "compass/layout/sticky-footer";
 
 /* Include if we need a sticky footer, sets up @include sticky-footer(); mixin, see
  * http://compass-style.org/reference/compass/layout/sticky_footer/ for more details,
@@ -32,14 +32,14 @@
  * 
  ****************************************************************************** */
 
-@import "_partials/variables";
-@import "_partials/mixins";
-@import "_partials/extends";
-@import "_partials/grid";
-@import "_partials/general";
+@import "sass/_partials/variables";
+@import "sass/_partials/mixins";
+@import "sass/_partials/extends";
+@import "sass/_partials/grid";
+@import "sass/_partials/general";
 @import "ss-social.css";
-@import "_partials/type";
-@import "_partials/forms";
+@import "sass/_partials/type";
+@import "sass/_partials/forms";
 
 /* ******************************************************************************
  *

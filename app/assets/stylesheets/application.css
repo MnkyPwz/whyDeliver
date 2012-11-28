@@ -10,5 +10,5 @@
  *
  *= require_self
  *= require 'sass/reset'
- *= require 'sass/style'
+ *= require 'style'
  */
